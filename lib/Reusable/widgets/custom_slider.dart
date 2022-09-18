@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:slider_button/slider_button.dart';
+import 'package:teewhy_portfolio_app/Reusable/portfolio.dart';
 
 class CustomSlider extends StatefulWidget {
   const CustomSlider({Key? key}) : super(key: key);
@@ -21,7 +22,6 @@ class _CustomSliderState extends State<CustomSlider> {
         buttonColor: Colors.white.withOpacity(0.5),
         vibrationFlag: true,
         highlightedColor: Colors.white.withOpacity(0.5),
-        dismissible: false,
         boxShadow: const BoxShadow(
           color: Colors.grey,
           blurRadius: 10,
@@ -30,7 +30,7 @@ class _CustomSliderState extends State<CustomSlider> {
         ),
         width: MediaQuery.of(context).size.width,
         action: () {
-          Navigator.of(context).pop();
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> const PortfolioPage()));
         },
         label:  Text(
           "Slide to Proceed",

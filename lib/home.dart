@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:teewhy_portfolio_app/reusables/widgets/custom_app_bar.dart';
-import 'package:teewhy_portfolio_app/reusables/widgets/custom_slider.dart';
-import 'package:teewhy_portfolio_app/reusables/widgets/profile_container.dart';
+import 'package:teewhy_portfolio_app/Reusable/portfolio.dart';
+import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
+import 'package:teewhy_portfolio_app/Reusable/widgets/profile_container.dart';
 
-import 'reusables/constants.dart';
+import 'Reusable/constants.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -39,16 +39,34 @@ class _TeeWhyState extends State<TeeWhy> {
         child: Column(
           children: [
             addVerticalSpacing(30),
-            const Expanded(
+             Expanded(
               flex: 1,
               child: CustomAppBar(
                 'Tee_of_GUI',
                 Padding(
-                  padding: EdgeInsets.only(right: 20),
-                  child: Icon(
-                    color: Colors.white,
-                    Icons.settings,
-                    size: 30,
+                  padding: const EdgeInsets.only(right: 20),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PortfolioPage(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 50.w,
+                      height: 40.h,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Icon(
+                        color: Colors.black,
+                        Icons.arrow_forward_ios,
+                        size: 30,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -57,7 +75,6 @@ class _TeeWhyState extends State<TeeWhy> {
                 flex: 4,
                 child: ProfileContainer('assets/images/bg',
                     'Hi there,\nI am Abubakar Issa', 'Flutter Developer')),
-            const Expanded(flex: 1, child: CustomSlider()),
           ],
         ),
         width: double.infinity,

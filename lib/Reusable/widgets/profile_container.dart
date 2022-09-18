@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:teewhy_portfolio_app/reusables/constants.dart';
-import 'package:teewhy_portfolio_app/reusables/widgets/social_media_container.dart';
+import 'package:teewhy_portfolio_app/Reusable/constants.dart';
+import 'package:teewhy_portfolio_app/Reusable/widgets/social_media_container.dart';
 
 class ProfileContainer extends StatelessWidget {
   final String image;
@@ -19,7 +19,10 @@ class ProfileContainer extends StatelessWidget {
           gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
-              colors: [Colors.white.withOpacity(0.6), Colors.white.withOpacity(0.7)]),
+              colors: [
+                Colors.white.withOpacity(0.6),
+                Colors.white.withOpacity(0.7)
+              ]),
           color: Colors.white,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30.r),
@@ -60,13 +63,17 @@ class ProfileContainer extends StatelessWidget {
                         height: 50,
                         width: 100,
                         child: TextButton(
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.r),
+                            style: TextButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.r),
+                              ),
                             ),
-                          ),
-                            onPressed: () {}, child: const Text('Hire Me')))),
+                            onPressed: () {},
+                            child: const Text(
+                              'Hire Me',
+                              style: TextStyle(color: Colors.black),
+                            )))),
                 addVerticalSpacing(20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
