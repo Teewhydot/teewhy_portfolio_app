@@ -1,48 +1,55 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatelessWidget {
- final String appBarTitle;
- final Widget trailing;
- const CustomAppBar(this.appBarTitle,this.trailing, {super.key});
+  final width;
+  final height;
+  final String appBarTitle;
+  final Widget trailing;
+  const CustomAppBar(this.width, this.height, this.appBarTitle, this.trailing,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-        child: Container(
-          height: 130,
-          width: double.infinity,
-          decoration:  BoxDecoration(
-            gradient: LinearGradient( begin: Alignment.topRight,end: Alignment.bottomLeft, colors: [Colors.white.withOpacity(0.6),Colors.white.withOpacity(0.7)]),
-            color: Colors.white,
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
-              bottomLeft: Radius.circular(30),
-              bottomRight: Radius.circular(30),
-            ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text(
-                  appBarTitle,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.normal,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20.r),
+      child: SizedBox(
+        width: width,
+        height: height,
+        child: Stack(
+          children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          appBarTitle,
+                          style: TextStyle(color: Colors.white, fontSize: 20.sp),
+                        ),
+                        trailing,
+                      ],
+                    ),
+                  ),
+                  width: width,
+                  height: height,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(20.r),
+                    border: Border.all(
+                        color: Colors.white.withOpacity(0.1), width: 1),
                   ),
                 ),
               ),
-            trailing,
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

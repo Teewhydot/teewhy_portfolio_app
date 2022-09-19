@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:slider_button/slider_button.dart';
-import 'package:teewhy_portfolio_app/Reusable/portfolio.dart';
+import 'package:teewhy_portfolio_app/Reusable/skills.dart';
 
 class CustomSlider extends StatefulWidget {
   const CustomSlider({Key? key}) : super(key: key);
@@ -30,7 +30,7 @@ class _CustomSliderState extends State<CustomSlider> {
         ),
         width: MediaQuery.of(context).size.width,
         action: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> const PortfolioPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> const Skills()));
         },
         label:  Text(
           "Slide to Proceed",

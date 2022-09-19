@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:teewhy_portfolio_app/Reusable/portfolio.dart';
+import 'package:teewhy_portfolio_app/Reusable/skills.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/profile_container.dart';
+import 'package:teewhy_portfolio_app/settings.dart';
 
 import 'Reusable/constants.dart';
 
@@ -37,44 +38,72 @@ class _TeeWhyState extends State<TeeWhy> {
     return Scaffold(
       body: Container(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            addVerticalSpacing(30),
-             Expanded(
-              flex: 1,
-              child: CustomAppBar(
-                'Tee_of_GUI',
-                Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PortfolioPage(),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      width: 50.w,
-                      height: 40.h,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Icon(
-                        color: Colors.black,
-                        Icons.arrow_forward_ios,
-                        size: 30,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            Column(
+              children: [
+                addVerticalSpacing(40),
+                 CustomAppBar(MediaQuery.of(context).size.width,100.0,
+                   'Tee_of_GUI',
+                   Row(
+                     children: [
+                       Padding(
+                         padding: const EdgeInsets.only(right: 20),
+                         child: GestureDetector(
+                           onTap: () {
+                             Navigator.push(
+                               context,
+                               MaterialPageRoute(
+                                 builder: (context) => const Skills(),
+                               ),
+                             );
+                           },
+                           child: Container(
+                             width: 50.w,
+                             height: 40.h,
+                             decoration: BoxDecoration(
+                               color: Colors.white,
+                               borderRadius: BorderRadius.circular(10),
+                             ),
+                             child: const Icon(
+                               color: Colors.black,
+                               Icons.arrow_forward_ios,
+                               size: 30,
+                             ),
+                           ),
+                         ),
+                       ),
+                       Padding(
+                         padding: const EdgeInsets.only(right: 20),
+                         child: GestureDetector(
+                           onTap: () {
+                             showModalBottomSheet(
+                               backgroundColor: Colors.transparent,
+                                 context: context,
+                                 builder: (BuildContext context) => const Settings());
+                           },
+                           child: Container(
+                             width: 50.w,
+                             height: 40.h,
+                             decoration: BoxDecoration(
+                               color: Colors.white,
+                               borderRadius: BorderRadius.circular(10),
+                             ),
+                             child: const Icon(
+                               color: Colors.black,
+                               Icons.settings,
+                               size: 30,
+                             ),
+                           ),
+                         ),
+                       ),
+                     ],
+                   ),
+                 ),
+              ],
             ),
-            const Expanded(
-                flex: 4,
-                child: ProfileContainer('assets/images/bg',
-                    'Hi there,\nI am Abubakar Issa', 'Flutter Developer')),
+             ProfileContainer('assets/images/bg',
+                 'Hi there,\nI am Abubakar Issa', 'Flutter Developer',500.0,MediaQuery.of(context).size.width),
           ],
         ),
         width: double.infinity,
