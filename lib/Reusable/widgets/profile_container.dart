@@ -4,16 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/social_media_container.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class ProfileContainer extends StatelessWidget {
+class ProfileContainerGlass extends StatelessWidget {
   final String image;
   final String name;
   final String desc;
   final width;
   final height;
 
-  const ProfileContainer(
+  const ProfileContainerGlass(
       this.image, this.name, this.desc, this.width, this.height,
       {super.key});
   @override
@@ -69,7 +68,7 @@ class ProfileContainer extends StatelessWidget {
                                         ),
                                       ),
                                       onPressed: () async {
-                                        launchEmail();
+                                        launchEmail(context);
                                       },
                                       child: const Text(
                                         'Hire Me',

@@ -32,7 +32,7 @@ class _PortfolioState extends State<Portfolio> {
               flex: 1,
               child: Row(
                 children: [
-                  CustomAppBar(
+                  CustomAppBarGlass(
                     MediaQuery.of(context).size.width,
                     100.0,
                     'Portfolio',

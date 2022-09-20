@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toast/toast.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -36,7 +38,8 @@ String? encodeQueryParameters(Map<String, String> params) {
 }
 
 
-void launchEmail() async {
+void launchEmail(BuildContext context) async {
+  ToastContext().init(context);
   final Uri emailLaunchUri = Uri(
     scheme: 'mailto',
     path: 'administrator@gmail.com',
@@ -48,7 +51,11 @@ void launchEmail() async {
   if (await canLaunchUrl(emailLaunchUri)) {
     await launchUrl(emailLaunchUri);
   } else {
-    throw "Error occurred sending an email";
+    Toast.show("No email app found on device",
+        textStyle: const TextStyle(color: Colors.white),
+        duration: Toast.lengthShort,
+        gravity: Toast.center,
+        backgroundColor: Colors.white.withOpacity(0.05));
   }
 
 }

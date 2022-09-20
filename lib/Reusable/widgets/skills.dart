@@ -4,7 +4,7 @@ import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/skill_card.dart';
 import 'package:teewhy_portfolio_app/generated/assets.dart';
-import 'package:teewhy_portfolio_app/portfolio.dart';
+import 'package:teewhy_portfolio_app/screens/portfolio.dart';
 
 class Skills extends StatefulWidget {
   const Skills({Key? key}) : super(key: key);
@@ -31,7 +31,7 @@ class _SkillsState extends State<Skills> {
               flex: 1,
               child: Row(
                 children: [
-                  CustomAppBar(
+                  CustomAppBarGlass(
                     MediaQuery.of(context).size.width,
                     100.0,
                     'Skills',
