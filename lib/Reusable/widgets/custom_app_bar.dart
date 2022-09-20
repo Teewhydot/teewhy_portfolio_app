@@ -3,12 +3,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBarGlass extends StatelessWidget {
   final width;
   final height;
   final String appBarTitle;
   final Widget trailing;
-  const CustomAppBar(this.width, this.height, this.appBarTitle, this.trailing,
+  const CustomAppBarGlass(this.width, this.height, this.appBarTitle, this.trailing,
       {super.key});
 
   @override
