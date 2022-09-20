@@ -110,7 +110,7 @@ class _TeeWhyState extends State<TeeWhy> {
         height: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/bg.jpg'),
+            image: AssetImage(''),
             fit: BoxFit.cover,
           ),
         ),

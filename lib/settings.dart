@@ -9,7 +9,9 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: const BoxDecoration(),
-        child: GlassmorphicFlexContainer(
+        child: GlassmorphicContainer(
+          width: MediaQuery.of(context).size.width,
+          height: 500,
           borderRadius: 20,
           blur: 30,
           padding: const EdgeInsets.all(20),

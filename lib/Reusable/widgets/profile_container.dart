@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/social_media_container.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfileContainer extends StatelessWidget {
   final String image;
@@ -67,7 +68,9 @@ class ProfileContainer extends StatelessWidget {
                                               BorderRadius.circular(30.r),
                                         ),
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () async {
+                                        launchEmail();
+                                      },
                                       child: const Text(
                                         'Hire Me',
                                         style: TextStyle(color: Colors.black),

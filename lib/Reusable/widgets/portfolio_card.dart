@@ -9,12 +9,19 @@ class PortfolioCard extends StatelessWidget {
   final String githubRepositoryLink;
   final String netlifySiteLink;
 
-  const PortfolioCard({super.key, required this.projectName, required this.projectDescription, required this.projectImage, required this.githubRepositoryLink, required this.netlifySiteLink});
-
+  const PortfolioCard(
+      {super.key,
+      required this.projectName,
+      required this.projectDescription,
+      required this.projectImage,
+      required this.githubRepositoryLink,
+      required this.netlifySiteLink});
 
   @override
   Widget build(BuildContext context) {
-    return GlassmorphicFlexContainer(
+    return GlassmorphicContainer(
+      width: 400,
+      height: 600,
       borderRadius: 20,
       blur: 20,
       padding: const EdgeInsets.all(5),
@@ -27,7 +34,7 @@ class PortfolioCard extends StatelessWidget {
             Colors.white.withOpacity(0.3),
             Colors.white.withOpacity(0.05),
           ],
-          stops:const [
+          stops: const [
             0.1,
             1,
           ]),
@@ -43,7 +50,7 @@ class PortfolioCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-           Container(
+            Container(
               width: 200,
               height: 200,
               decoration: BoxDecoration(
@@ -55,7 +62,7 @@ class PortfolioCard extends StatelessWidget {
               ),
             ),
             Text(
-             projectName,
+              projectName,
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 20,
@@ -70,12 +77,14 @@ class PortfolioCard extends StatelessWidget {
               ),
             ),
             addVerticalSpacing(10),
-Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
                   onPressed: () {
-                    launchURL(githubRepositoryLink);
+                    launchURL(
+                      githubRepositoryLink,
+                    );
                   },
                   child: const Text(
                     'View on Github',

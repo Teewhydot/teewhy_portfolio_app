@@ -14,7 +14,7 @@ class SkillCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GlassmorphicFlexContainer(
+    return GlassmorphicContainer(
       borderRadius: 20,
       blur: 20,
       padding: const EdgeInsets.all(5),
@@ -24,10 +24,10 @@ class SkillCard extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-             skillColor.withOpacity(0.3),
-             skillColor.withOpacity(0.05),
+            skillColor.withOpacity(0.3),
+            skillColor.withOpacity(0.05),
           ],
-          stops:const [
+          stops: const [
             0.1,
             1,
           ]),
@@ -39,6 +39,8 @@ class SkillCard extends StatelessWidget {
           const Color((0xFFFFFFFF)).withOpacity(0.5),
         ],
       ),
+      width: 200,
+      height: 200,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -54,6 +56,6 @@ class SkillCard extends StatelessWidget {
           ],
         ),
       ),
-      );
+    );
   }
 }

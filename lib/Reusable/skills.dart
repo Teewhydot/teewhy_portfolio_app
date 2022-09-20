@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/skill_card.dart';
-import 'package:teewhy_portfolio_app/settings.dart';
+import 'package:teewhy_portfolio_app/portfolio.dart';
 
 class Skills extends StatefulWidget {
   const Skills({Key? key}) : super(key: key);
@@ -19,76 +19,107 @@ class _SkillsState extends State<Skills> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/bg.jpg'),
+            image: AssetImage(''),
             fit: BoxFit.cover,
           ),
         ),
         child: Column(
           children: [
             addVerticalSpacing(30),
-            CustomAppBar(
-              MediaQuery.of(context).size.width,
-              100.0,
-              'Skills',
-              Row(
+            Expanded(
+              flex: 1,
+              child: Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: GestureDetector(
-                      onTap: () {
-                       Navigator.pop(context);
-                      },
-                      child: Container(
-                        width: 50.w,
-                        height: 40.h,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
+                  CustomAppBar(
+                    MediaQuery.of(context).size.width,
+                    100.0,
+                    'Skills',
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                              width: 50.w,
+                              height: 40.h,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Icon(
+                                color: Colors.black,
+                                Icons.arrow_back_ios,
+                                size: 30,
+                              ),
+                            ),
+                          ),
                         ),
-                        child: const Icon(
-                          color: Colors.black,
-                          Icons.arrow_back_ios,
-                          size: 30,
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Portfolio()));
+                            },
+                            child: Container(
+                              width: 50.w,
+                              height: 40.h,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Icon(
+                                color: Colors.black,
+                                Icons.arrow_forward_ios,
+                                size: 30,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: GestureDetector(
-                      onTap: () {
-                        showModalBottomSheet(
-                            context: context,
-                            builder: (BuildContext context) =>
-                                const Settings());
-                      },
-                      child: Container(
-                        width: 50.w,
-                        height: 40.h,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Icon(
-                          color: Colors.black,
-                          Icons.settings,
-                          size: 30,
-                        ),
-                      ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
             Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                children:const [
-                  SkillCard(skillName: 'Flutter', skillIcon: Icon(Icons.add), skillColor: Colors.blue),
-                  SkillCard(skillName: 'Dart', skillIcon: Icon(Icons.add), skillColor: Colors.yellow),
-                  SkillCard(skillName: 'Firebase', skillIcon: Icon(Icons.add), skillColor: Colors.black),
-                  SkillCard(skillName: 'API', skillIcon: Icon(Icons.add), skillColor: Colors.green),
-                ]
+              flex: 5,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    children: const [
+                      Expanded(
+                          child: SkillCard(
+                              skillName: 'Flutter',
+                              skillIcon: Icon(Icons.padding_outlined),
+                              skillColor: Colors.red)),
+                      Expanded(
+                          child: SkillCard(
+                              skillName: 'Flutter',
+                              skillIcon: Icon(Icons.padding_outlined),
+                              skillColor: Colors.red)),
+                    ],
+                  ),
+                  addVerticalSpacing(10),
+                  Row(
+                    children: const [
+                      Expanded(
+                          child: SkillCard(
+                              skillName: 'Flutter',
+                              skillIcon: Icon(Icons.padding_outlined),
+                              skillColor: Colors.red)),
+                      Expanded(
+                          child: SkillCard(
+                              skillName: 'Flutter',
+                              skillIcon: Icon(Icons.padding_outlined),
+                              skillColor: Colors.red)),
+                    ],
+                  ),
+
+                ],
               ),
             ),
           ],
