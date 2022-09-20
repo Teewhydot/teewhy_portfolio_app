@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/portfolio_card.dart';
+import 'package:teewhy_portfolio_app/generated/assets.dart';
 
 
 
@@ -20,13 +21,13 @@ class _PortfolioState extends State<Portfolio> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/bg(1).jpg'),
+            image: AssetImage(Assets.imagesGb),
             fit: BoxFit.cover,
           ),
         ),
         child: Column(
           children: [
-            addVerticalSpacing(30),
+            addVerticalSpacing(20),
             Expanded(
               flex: 1,
               child: Row(
@@ -66,8 +67,7 @@ class _PortfolioState extends State<Portfolio> {
             ),
             Expanded(
               flex: 5,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+              child: ListView(
                 children: [
                  const Expanded(
                       child: PortfolioCard(
@@ -78,6 +78,13 @@ class _PortfolioState extends State<Portfolio> {
                           netlifySiteLink: 'www')),
                   addVerticalSpacing(10),
                    const Expanded(
+                      child: PortfolioCard(
+                          projectName: 'Calc',
+                          projectDescription: "Calc",
+                          projectImage: 'assets/images/bg.jpg',
+                          githubRepositoryLink: 'https//google.com',
+                          netlifySiteLink: 'www')),
+                  const Expanded(
                       child: PortfolioCard(
                           projectName: 'Calc',
                           projectDescription: "Calc",

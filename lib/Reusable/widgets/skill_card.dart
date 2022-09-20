@@ -39,8 +39,8 @@ class SkillCard extends StatelessWidget {
           const Color((0xFFFFFFFF)).withOpacity(0.5),
         ],
       ),
-      width: 200,
-      height: 200,
+      width: 150,
+      height: 150,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

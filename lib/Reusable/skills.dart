@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/skill_card.dart';
+import 'package:teewhy_portfolio_app/generated/assets.dart';
 import 'package:teewhy_portfolio_app/portfolio.dart';
 
 class Skills extends StatefulWidget {
@@ -19,13 +20,13 @@ class _SkillsState extends State<Skills> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(''),
+            image: AssetImage(Assets.imagesGb),
             fit: BoxFit.cover,
           ),
         ),
         child: Column(
           children: [
-            addVerticalSpacing(30),
+            addVerticalSpacing(20),
             Expanded(
               flex: 1,
               child: Row(
@@ -90,13 +91,14 @@ class _SkillsState extends State<Skills> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Row(
-                    children: const [
-                      Expanded(
+                    children:  [
+                      const Expanded(
                           child: SkillCard(
                               skillName: 'Flutter',
                               skillIcon: Icon(Icons.padding_outlined),
                               skillColor: Colors.red)),
-                      Expanded(
+                      addHorizontalSpacing(10),
+                      const Expanded(
                           child: SkillCard(
                               skillName: 'Flutter',
                               skillIcon: Icon(Icons.padding_outlined),
@@ -105,13 +107,14 @@ class _SkillsState extends State<Skills> {
                   ),
                   addVerticalSpacing(10),
                   Row(
-                    children: const [
-                      Expanded(
+                    children:[
+                      const Expanded(
                           child: SkillCard(
                               skillName: 'Flutter',
                               skillIcon: Icon(Icons.padding_outlined),
                               skillColor: Colors.red)),
-                      Expanded(
+                      addHorizontalSpacing(10),
+                      const Expanded(
                           child: SkillCard(
                               skillName: 'Flutter',
                               skillIcon: Icon(Icons.padding_outlined),

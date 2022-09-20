@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teewhy_portfolio_app/Reusable/skills.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/profile_container.dart';
+import 'package:teewhy_portfolio_app/generated/assets.dart';
 import 'package:teewhy_portfolio_app/settings.dart';
 
 import 'Reusable/constants.dart';
@@ -110,7 +111,7 @@ class _TeeWhyState extends State<TeeWhy> {
         height: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(''),
+            image: AssetImage(Assets.imagesGb),
             fit: BoxFit.cover,
           ),
         ),
