@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
@@ -70,9 +71,8 @@ class _SkillsState extends State<Skills> {
                                 onTap: () {
                                   Navigator.push(
                                       context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const Portfolio()));
+                                      PageTransition(child: const Portfolio(), type: PageTransitionType.rightToLeft,isIos: true)
+                                  );
                                 },
                                 child: Container(
                                   width: 50.w,
@@ -185,9 +185,8 @@ class _SkillsState extends State<Skills> {
                                   onTap: () {
                                     Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Portfolio()));
+                                        PageTransition(child: const Portfolio(), type: PageTransitionType.rightToLeft,isIos: true)
+                                    );
                                   },
                                   child: Container(
                                     width: 50.w,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/measure.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/neirmorphic_profile_container.dart';
@@ -65,9 +66,7 @@ class _TeeWhyState extends State<TeeWhy> {
                                 onTap: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const Skills(),
-                                    ),
+                                  PageTransition(child: const Skills(), type: PageTransitionType.rightToLeft,isIos: true)
                                   );
                                 },
                                 child: Container(
@@ -172,11 +171,8 @@ class _TeeWhyState extends State<TeeWhy> {
                                       child: GestureDetector(
                                         onTap: () {
                                           Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const Skills(),
-                                            ),
+                                              context,
+                                              PageTransition(child: const Skills(), type: PageTransitionType.rightToLeft,isIos: true)
                                           );
                                         },
                                         child: Container(

@@ -80,20 +80,20 @@ class _PortfolioState extends State<Portfolio> {
                       height: 650.h,
                       child: ListView(
                         children: [
-                          PortfolioCardGlass(
+                          const PortfolioCardGlass(
                               projectName: 'Calc',
                               projectDescription: "Calc",
                               projectImage: Assets.imagesGb,
                               githubRepositoryLink: 'https://google.com',
                               netlifySiteLink: 'www'),
                           addVerticalSpacing(10),
-                          PortfolioCardGlass(
+                          const PortfolioCardGlass(
                               projectName: 'Calc',
                               projectDescription: "Calc",
                               projectImage: Assets.imagesGb,
                               githubRepositoryLink: 'https//google.com',
                               netlifySiteLink: 'www'),
-                          PortfolioCardGlass(
+                          const PortfolioCardGlass(
                               projectName: 'Calc',
                               projectDescription: "Calc",
                               projectImage: Assets.imagesGb,
