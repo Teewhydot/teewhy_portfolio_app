@@ -39,12 +39,12 @@ class _SkillsState extends State<Skills> {
                     children: [
                       CustomAppBarGlass(
                         MediaQuery.of(context).size.width,
-                        100.0,
+                        100.0.h,
                         'Skills',
                         Row(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(right: 20),
+                              padding:  EdgeInsets.only(right: 20.r),
                               child: GestureDetector(
                                 onTap: () {
                                   Navigator.pop(context);
@@ -54,18 +54,18 @@ class _SkillsState extends State<Skills> {
                                   height: 40.h,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10.r),
                                   ),
-                                  child: const Icon(
+                                  child: Icon(
                                     color: Colors.black,
                                     Icons.arrow_back_ios,
-                                    size: 30,
+                                    size: 30.sp,
                                   ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 20),
+                              padding: EdgeInsets.only(right: 20.r),
                               child: GestureDetector(
                                 onTap: () {
                                   Navigator.push(
@@ -81,10 +81,10 @@ class _SkillsState extends State<Skills> {
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  child: const Icon(
+                                  child: Icon(
                                     color: Colors.black,
                                     Icons.arrow_forward_ios,
-                                    size: 30,
+                                    size: 30.sp,
                                   ),
                                 ),
                               ),
@@ -159,7 +159,7 @@ class _SkillsState extends State<Skills> {
                           Row(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(right: 20),
+                                padding:  EdgeInsets.only(right: 20.r),
                                 child: GestureDetector(
                                   onTap: () {
                                     Navigator.pop(context);
@@ -171,16 +171,16 @@ class _SkillsState extends State<Skills> {
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    child: const Icon(
+                                    child:  Icon(
                                       color: Colors.black,
                                       Icons.arrow_back_ios,
-                                      size: 30,
+                                      size: 30.sp,
                                     ),
                                   ),
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(right: 20),
+                                padding:  EdgeInsets.only(right: 20.r),
                                 child: GestureDetector(
                                   onTap: () {
                                     Navigator.push(
@@ -196,10 +196,10 @@ class _SkillsState extends State<Skills> {
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    child: const Icon(
+                                    child: Icon(
                                       color: Colors.black,
                                       Icons.arrow_forward_ios,
-                                      size: 30,
+                                      size: 30.sp,
                                     ),
                                   ),
                                 ),
@@ -208,8 +208,8 @@ class _SkillsState extends State<Skills> {
                           ),
                         ],
                       ),
-                      width: width,
-                      height: 100.0,
+                      width: width.w,
+                      height: 100.0.h,
                       color: Colors.grey[300]),
                 ),
                 addVerticalSpacing(40),

@@ -26,11 +26,11 @@ class NeumorphicContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.r),
         border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
         boxShadow: [
-          const BoxShadow(
+           BoxShadow(
             color: Colors.white,
-            blurRadius: 10,
+            blurRadius: 10.r,
             spreadRadius: 1,
-            offset: Offset(-5, -5), // changes position of shadow
+            offset: const Offset(-5, -5), // changes position of shadow
           ),
           BoxShadow(
             color: Colors.grey.shade400,

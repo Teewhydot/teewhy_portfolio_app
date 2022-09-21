@@ -23,10 +23,10 @@ class _SettingsGlassState extends State<SettingsGlass> {
         decoration: const BoxDecoration(),
         child: GlassmorphicContainer(
           width: MediaQuery.of(context).size.width,
-          height: 500,
-          borderRadius: 20,
-          blur: 30,
-          padding: const EdgeInsets.all(20),
+          height: 500.h,
+          borderRadius: 20.r,
+          blur: 30.r,
+          padding:  EdgeInsets.all(20.r),
           alignment: Alignment.bottomCenter,
           border: 2,
           linearGradient: LinearGradient(
@@ -53,9 +53,9 @@ class _SettingsGlassState extends State<SettingsGlass> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 addVerticalSpacing(30),
-                const Text('Settings',
+                 Text('Settings',
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white)),
                 ListTile(
@@ -100,9 +100,9 @@ class _SettingsNeumorphicState extends State<SettingsNeumorphic> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 addVerticalSpacing(30),
-                const Text('Settings',
+                Text('Settings',
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white)),
                 ListTile(
@@ -121,15 +121,15 @@ class _SettingsNeumorphicState extends State<SettingsNeumorphic> {
             ),
           ),
           width: MediaQuery.of(context).size.width,
-          height: 500,
+          height: 500.h,
           decoration: BoxDecoration(
             color: widget.color,
             borderRadius: BorderRadius.circular(20.r),
             border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
             boxShadow: [
-              const BoxShadow(
+              BoxShadow(
                 color: Colors.white,
-                blurRadius: 10,
+                blurRadius: 10.r,
                 spreadRadius: 1,
                 offset: Offset(-5, -5), // changes position of shadow
               ),

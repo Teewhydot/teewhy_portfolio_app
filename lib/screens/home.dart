@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:teewhy_portfolio_app/Reusable/measure.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/neirmorphic_profile_container.dart';
 import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 import 'package:teewhy_portfolio_app/screens/skills.dart';
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     ToastContext().init(context);
     return ScreenUtilInit(
-      designSize: const Size(375, 675),
+      designSize: const Size(375, 812),
       builder: (context, _) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -54,12 +55,12 @@ class _TeeWhyState extends State<TeeWhy> {
                    scaffoldSpacing,
                       CustomAppBarGlass(
                         MediaQuery.of(context).size.width,
-                        100.0,
+                        100.0.h,
                         'Tee_of_GUI',
                         Row(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(right: 20),
+                              padding:  EdgeInsets.only(right: 20.r),
                               child: GestureDetector(
                                 onTap: () {
                                   Navigator.push(
@@ -74,18 +75,18 @@ class _TeeWhyState extends State<TeeWhy> {
                                   height: 40.h,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10.r),
                                   ),
-                                  child: const Icon(
+                                  child:  Icon(
                                     color: Colors.black,
                                     Icons.arrow_forward_ios,
-                                    size: 30,
+                                    size: 30.sp,
                                   ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 20),
+                              padding:EdgeInsets.only(right: 20.r),
                               child: GestureDetector(
                                 onTap: () {
                                   showModalBottomSheet(
@@ -99,12 +100,12 @@ class _TeeWhyState extends State<TeeWhy> {
                                   height: 40.h,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10.r),
                                   ),
-                                  child: const Icon(
+                                  child:  Icon(
                                     color: Colors.black,
                                     Icons.settings,
-                                    size: 30,
+                                    size: 30.sp,
                                   ),
                                 ),
                               ),
@@ -114,12 +115,13 @@ class _TeeWhyState extends State<TeeWhy> {
                       ),
                     ],
                   ),
+
                   ProfileContainerGlass(
                       'assets/images/bg',
                       'Hi there,\nI am Abubakar Issa',
                       'Flutter Developer',
-                      500.0,
-                      MediaQuery.of(context).size.width),
+                      MediaQuery.of(context).size.width,
+                      500.0.h),
                 ],
               ),
               width: double.infinity,
@@ -142,81 +144,91 @@ class _TeeWhyState extends State<TeeWhy> {
                  scaffoldSpacing,
                     Padding(
                       padding: EdgeInsets.only(left: 20.w, right: 20.w),
-                      child: NeumorphicContainer(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 10.w),
-                                child: Text(
-                                  'Tee_of_GUI',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 20.sp),
+                      child: MeasureSize(
+                        onChange: (size){
+                          var myChildSize = Size.zero;
+                          setState(() {
+                            myChildSize = size;
+                            print(myChildSize);
+                          });
+
+                        },
+                        child: NeumorphicContainer(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 10.w),
+                                  child: Text(
+                                    'Tee_of_GUI',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 20.sp),
+                                  ),
                                 ),
-                              ),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 20),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Skills(),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 20),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const Skills(),
+                                            ),
+                                          );
+                                        },
+                                        child: Container(
+                                          width: 50.w,
+                                          height: 40.h,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
-                                        );
-                                      },
-                                      child: Container(
-                                        width: 50.w,
-                                        height: 40.h,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: const Icon(
-                                          color: Colors.black,
-                                          Icons.arrow_forward_ios,
-                                          size: 30,
+                                          child: const Icon(
+                                            color: Colors.black,
+                                            Icons.arrow_forward_ios,
+                                            size: 30,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 20),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        showModalBottomSheet(
-                                            backgroundColor: Colors.transparent,
-                                            context: context,
-                                            builder: (BuildContext context) =>
-                                                const SettingsNeumorphic());
-                                      },
-                                      child: Container(
-                                        width: 50.w,
-                                        height: 40.h,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: const Icon(
-                                          color: Colors.black,
-                                          Icons.settings,
-                                          size: 30,
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 20),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          showModalBottomSheet(
+                                              backgroundColor: Colors.transparent,
+                                              context: context,
+                                              builder: (BuildContext context) =>
+                                                  const SettingsNeumorphic());
+                                        },
+                                        child: Container(
+                                          width: 50.w,
+                                          height: 40.h,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: const Icon(
+                                            color: Colors.black,
+                                            Icons.settings,
+                                            size: 30,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          width: MediaQuery.of(context).size.width,
-                          height: 100.0,
-                          color: Colors.grey[300]),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            width: MediaQuery.of(context).size.width,
+                            height: 100.0.h,
+                            color: Colors.grey[300]),
+                      ),
                     ),
                   ],
                 ),
@@ -225,7 +237,7 @@ class _TeeWhyState extends State<TeeWhy> {
                     name: 'Abubakar Issa',
                     desc: 'Flutter Developer',
                     width: MediaQuery.of(context).size.width,
-                    height: 500.0,
+                    height: 500.0.h,
                     color: Colors.grey[300])
               ],
             ),

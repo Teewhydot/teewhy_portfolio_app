@@ -16,9 +16,9 @@ class SkillCardGlass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlassmorphicContainer(
-      borderRadius: 20,
+      borderRadius: 20.r,
       blur: 20,
-      padding: const EdgeInsets.all(5),
+      padding: EdgeInsets.all(5.r),
       alignment: Alignment.bottomCenter,
       border: 2,
       linearGradient: LinearGradient(
@@ -40,8 +40,8 @@ class SkillCardGlass extends StatelessWidget {
           const Color((0xFFFFFFFF)).withOpacity(0.5),
         ],
       ),
-      width: 150,
-      height: 150,
+      width: 150.w,
+      height: 150.h,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -49,9 +49,9 @@ class SkillCardGlass extends StatelessWidget {
             skillIcon,
             Text(
               skillName,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.white,
-                fontSize: 20,
+                fontSize: 20.sp,
               ),
             ),
           ],
@@ -82,17 +82,17 @@ class SkillCardNeumorphic extends StatelessWidget {
               skillIcon,
               Text(
                 skillName,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 20,
+                  fontSize: 20.sp,
                 ),
               ),
             ],
           ),
         ),
       ),
-      width: 150.0,
-      height: 150.0,
+      width: 150.0.w,
+      height: 150.0.h,
       decoration: BoxDecoration(
         color: Colors.grey[300],
         borderRadius: BorderRadius.circular(20.r),

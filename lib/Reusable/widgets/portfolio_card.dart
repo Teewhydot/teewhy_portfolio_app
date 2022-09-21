@@ -21,13 +21,13 @@ class PortfolioCardGlass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(20.0.r),
       child: GlassmorphicContainer(
-        width: 300,
-        height: 400,
-        borderRadius: 20,
+        width: 250.w,
+        height: 250.h,
+        borderRadius: 20.r,
         blur: 20,
-        padding: const EdgeInsets.all(5),
+        padding:  EdgeInsets.all(5.r),
         alignment: Alignment.bottomCenter,
         border: 2,
         linearGradient: LinearGradient(
@@ -54,8 +54,8 @@ class PortfolioCardGlass extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 200,
-                height: 200,
+                width: 100.w,
+                height: 100.h,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(projectImage),
@@ -74,9 +74,9 @@ class PortfolioCardGlass extends StatelessWidget {
               addVerticalSpacing(10),
               Text(
                 projectDescription,
-                style: const TextStyle(
+                style:  TextStyle(
                   color: Colors.white,
-                  fontSize: 15,
+                  fontSize: 15.sp,
                 ),
               ),
               addVerticalSpacing(10),
@@ -89,11 +89,11 @@ class PortfolioCardGlass extends StatelessWidget {
                         githubRepositoryLink,
                       );
                     },
-                    child: const Text(
+                    child:  Text(
                       'View on Github',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 15.sp,
                       ),
                     ),
                   ),
@@ -101,11 +101,11 @@ class PortfolioCardGlass extends StatelessWidget {
                     onPressed: () {
                       launchURL(netlifySiteLink);
                     },
-                    child: const Text(
+                    child: Text(
                       'Launch on Netlify',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 15.sp,
                       ),
                     ),
                   ),
@@ -138,36 +138,37 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
+      padding: EdgeInsets.only(left: 20.0.w, right: 20.0.w, bottom: 10.0.h),
       child: Container(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 200,
-                height: 200,
+                width: 100.w,
+                height: 100.h,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(projectImage),
+
+                    image: AssetImage(projectImage,),
                     fit: BoxFit.cover,
                   ),
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
               ),
               Text(
                 projectName,
-                style: const TextStyle(
+                style:  TextStyle(
                   color: Colors.white,
-                  fontSize: 20,
+                  fontSize: 20.sp,
                 ),
               ),
               addVerticalSpacing(10),
               Text(
                 projectDescription,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 15,
+                  fontSize: 15.sp,
                 ),
               ),
               addVerticalSpacing(10),
@@ -180,11 +181,11 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
                         githubRepositoryLink,
                       );
                     },
-                    child: const Text(
+                    child: Text(
                       'View on Github',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 15.sp,
                       ),
                     ),
                   ),
@@ -192,11 +193,11 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
                     onPressed: () {
                       launchURL(netlifySiteLink);
                     },
-                    child: const Text(
+                    child:  Text(
                       'Launch on Netlify',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 15.sp,
                       ),
                     ),
                   ),
@@ -205,8 +206,7 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
             ],
           ),
         ),
-        width: 200,
-        height: 400,
+        height: 250.h,
         decoration: BoxDecoration(
           color: Colors.grey[300],
           borderRadius: BorderRadius.circular(20.r),

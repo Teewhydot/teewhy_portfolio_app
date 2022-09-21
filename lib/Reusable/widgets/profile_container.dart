@@ -20,22 +20,23 @@ class ProfileContainerGlass extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20.r),
       child: SizedBox(
-        width: width,
         height: height,
         child: Stack(children: [
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0.r),
               child: Container(
+                height: height,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0.r),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          addVerticalSpacing(60),
                           Text(
                             name,
                             style: TextStyle(
@@ -87,7 +88,6 @@ class ProfileContainerGlass extends StatelessWidget {
                   ),
                 ),
                 width: width,
-                height: height,
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(20.r),

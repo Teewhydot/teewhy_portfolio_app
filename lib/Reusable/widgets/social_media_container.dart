@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SocialMediaContainer extends StatelessWidget {
   const SocialMediaContainer({super.key});
@@ -26,10 +27,10 @@ class SmItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding:  EdgeInsets.all(5.0.r),
         child: Container(
-          height: 50,
-          width: 50,
+          height: 50.h,
+          width: 50.w,
           decoration: BoxDecoration(
             color: Colors.white,
             shape: BoxShape.circle,
