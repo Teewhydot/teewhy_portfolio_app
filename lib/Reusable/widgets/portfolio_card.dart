@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 
-class PortfolioCard extends StatelessWidget {
+class PortfolioCardGlass extends StatelessWidget {
   final String projectName;
   final String projectDescription;
   final String projectImage;
   final String githubRepositoryLink;
   final String netlifySiteLink;
 
-  const PortfolioCard(
+  const PortfolioCardGlass(
       {super.key,
       required this.projectName,
       required this.projectDescription,
@@ -112,6 +113,118 @@ class PortfolioCard extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class PortfolioCardNeurmorphic extends StatelessWidget {
+  final String projectName;
+  final String projectDescription;
+  final String projectImage;
+  final String githubRepositoryLink;
+  final String netlifySiteLink;
+
+  const PortfolioCardNeurmorphic(
+      {super.key,
+        required this.projectName,
+        required this.projectDescription,
+        required this.projectImage,
+        required this.githubRepositoryLink,
+        required this.netlifySiteLink});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
+      child: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(projectImage),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              Text(
+                projectName,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              addVerticalSpacing(10),
+              Text(
+                projectDescription,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                ),
+              ),
+              addVerticalSpacing(10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      launchURL(
+                        githubRepositoryLink,
+                      );
+                    },
+                    child: const Text(
+                      'View on Github',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      launchURL(netlifySiteLink);
+                    },
+                    child: const Text(
+                      'Launch on Netlify',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        width: 200,
+        height: 400,
+        decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20.r),
+          border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
+          boxShadow: [
+            const BoxShadow(
+              color: Colors.white,
+              blurRadius: 10,
+              spreadRadius: 1,
+              offset: Offset(-5, -5), // changes position of shadow
+            ),
+            BoxShadow(
+              color: Colors.grey.shade400,
+              blurRadius: 18,
+              spreadRadius: 1,
+              offset: const Offset(5, 5), // changes position of shadow
+            ),
+          ],
         ),
       ),
     );

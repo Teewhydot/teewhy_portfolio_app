@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 
-class SkillCard extends StatelessWidget {
+class SkillCardGlass extends StatelessWidget {
   final String skillName;
   final Icon skillIcon;
   final Color skillColor;
 
-  const SkillCard(
+  const SkillCardGlass(
       {super.key,
       required this.skillName,
       required this.skillIcon,
@@ -55,6 +56,61 @@ class SkillCard extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+
+class SkillCardNeumorphic extends StatelessWidget {
+  final String skillName;
+  final Icon skillIcon;
+  const SkillCardNeumorphic(
+      {super.key,
+        required this.skillName,
+        required this.skillIcon,
+      });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              skillIcon,
+              Text(
+                skillName,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      width: 150.0,
+      height: 150.0,
+      decoration: BoxDecoration(
+        color: Colors.grey[300],
+        borderRadius: BorderRadius.circular(20.r),
+        border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
+        boxShadow: [
+          const BoxShadow(
+            color: Colors.white,
+            blurRadius: 10,
+            spreadRadius: 1,
+            offset: Offset(-5, -5), // changes position of shadow
+          ),
+          BoxShadow(
+            color: Colors.grey.shade400,
+            blurRadius: 18,
+            spreadRadius: 1,
+            offset: const Offset(5, 5), // changes position of shadow
+          ),
+        ],
       ),
     );
   }

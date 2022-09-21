@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/neirmorphic_profile_container.dart';
-import 'package:teewhy_portfolio_app/Reusable/widgets/skills.dart';
+import 'package:teewhy_portfolio_app/screens/skills.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/profile_container.dart';
 import 'package:teewhy_portfolio_app/generated/assets.dart';
@@ -89,7 +89,7 @@ class _TeeWhyState extends State<TeeWhy> {
                                       backgroundColor: Colors.transparent,
                                       context: context,
                                       builder: (BuildContext context) =>
-                                          const Settings());
+                                          const SettingsGlass());
                                 },
                                 child: Container(
                                   width: 50.w,
@@ -189,7 +189,7 @@ class _TeeWhyState extends State<TeeWhy> {
                                             backgroundColor: Colors.transparent,
                                             context: context,
                                             builder: (BuildContext context) =>
-                                                const Settings());
+                                                const SettingsNeumorphic());
                                       },
                                       child: Container(
                                         width: 50.w,
