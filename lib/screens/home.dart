@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/neirmorphic_profile_container.dart';
+import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 import 'package:teewhy_portfolio_app/screens/skills.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/profile_container.dart';
@@ -40,7 +42,8 @@ class _TeeWhyState extends State<TeeWhy> {
   bool glassMode = false;
   @override
   Widget build(BuildContext context) {
-    return glassMode
+    final providerListen = Provider.of<DesignModeProvider>(context);
+    return providerListen.isGlassMode
         ? Scaffold(
             body: Container(
               child: Column(
@@ -48,7 +51,7 @@ class _TeeWhyState extends State<TeeWhy> {
                 children: [
                   Column(
                     children: [
-                      addVerticalSpacing(40),
+                   scaffoldSpacing,
                       CustomAppBarGlass(
                         MediaQuery.of(context).size.width,
                         100.0,
@@ -136,7 +139,7 @@ class _TeeWhyState extends State<TeeWhy> {
               children: [
                 Column(
                   children: [
-                    addVerticalSpacing(60),
+                 scaffoldSpacing,
                     Padding(
                       padding: EdgeInsets.only(left: 20.w, right: 20.w),
                       child: NeumorphicContainer(

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/neumorphic_container.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/portfolio_card.dart';
 import 'package:teewhy_portfolio_app/generated/assets.dart';
+import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 
 
 
@@ -19,8 +21,9 @@ class _PortfolioState extends State<Portfolio> {
   bool glassMode = false;
   @override
   Widget build(BuildContext context) {
+    final providerListen = Provider.of<DesignModeProvider>(context);
     final width = MediaQuery.of(context).size.width;
-    return glassMode?Scaffold(
+    return providerListen.isGlassMode ?Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -30,43 +33,40 @@ class _PortfolioState extends State<Portfolio> {
         ),
         child: Column(
           children: [
-            addVerticalSpacing(20),
-            Expanded(
-              flex: 1,
-              child: Row(
-                children: [
-                  CustomAppBarGlass(
-                    MediaQuery.of(context).size.width,
-                    100.0,
-                    'Portfolio',
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                              width: 50.w,
-                              height: 40.h,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: const Icon(
-                                color: Colors.black,
-                                Icons.arrow_back_ios,
-                                size: 30,
-                              ),
+          scaffoldSpacing,
+            Row(
+              children: [
+                CustomAppBarGlass(
+                  MediaQuery.of(context).size.width,
+                  100.0,
+                  'Portfolio',
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                            width: 50.w,
+                            height: 40.h,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: const Icon(
+                              color: Colors.black,
+                              Icons.arrow_back_ios,
+                              size: 30,
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Expanded(
               flex: 5,
@@ -104,7 +104,7 @@ class _PortfolioState extends State<Portfolio> {
       backgroundColor: Colors.grey[300],
       body: Column(
         children: [
-          addVerticalSpacing(60),
+       scaffoldSpacing,
           Padding(
             padding: EdgeInsets.only(left: 20.w, right: 20.w),
             child: NeumorphicContainer(

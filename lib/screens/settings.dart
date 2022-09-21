@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 
-class SettingsGlass extends StatelessWidget {
+import '../provider/design_mode_provider.dart';
+
+class SettingsGlass extends StatefulWidget {
   const SettingsGlass({super.key});
 
   @override
+  State<SettingsGlass> createState() => _SettingsGlassState();
+}
+
+class _SettingsGlassState extends State<SettingsGlass> {
+  @override
   Widget build(BuildContext context) {
+    final providerListen = Provider.of<DesignModeProvider>(context);
+    final provider = Provider.of<DesignModeProvider>(context, listen: false);
+    final text = providerListen.isGlassMode ? 'Glass Mode' : 'Neumorphic Mode';
     return Container(
         decoration: const BoxDecoration(),
         child: GlassmorphicContainer(
@@ -50,9 +61,15 @@ class SettingsGlass extends StatelessWidget {
                 ListTile(
                   textColor: Colors.white,
                   style: ListTileStyle.list,
-                  title: const Text('Change design mode'),
-                  trailing:
-                      Switch.adaptive(value: false, onChanged: (value) {}),
+                  leading: Text(text),
+                  enabled: true,
+
+                  trailing: Switch.adaptive(
+                      value: providerListen.isGlassMode,
+                      onChanged: (value) {
+                        provider.toggleDesignMode(value);
+                    Navigator.pop(context);
+                      }),
                 ),
               ],
             ),
@@ -61,53 +78,71 @@ class SettingsGlass extends StatelessWidget {
   }
 }
 
-class SettingsNeumorphic extends StatelessWidget {
+class SettingsNeumorphic extends StatefulWidget {
   final color;
   const SettingsNeumorphic({super.key, this.color});
 
   @override
+  State<SettingsNeumorphic> createState() => _SettingsNeumorphicState();
+}
+
+class _SettingsNeumorphicState extends State<SettingsNeumorphic> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            addVerticalSpacing(30),
-            const Text('Settings',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white)),
-            ListTile(
-              textColor: Colors.white,
-              style: ListTileStyle.list,
-              title: const Text('Change design mode'),
-              trailing: Switch.adaptive(value: false, onChanged: (value) {}),
+    final providerListen = Provider.of<DesignModeProvider>(context);
+    final provider = Provider.of<DesignModeProvider>(context, listen: false);
+    final text = providerListen.isGlassMode ? 'Glass Mode' : 'Neumorphic Mode';
+    return Consumer<DesignModeProvider>(
+      builder: (BuildContext context, value, Widget? child) {
+        return  Container(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                addVerticalSpacing(30),
+                const Text('Settings',
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                ListTile(
+                  textColor: Colors.white,
+                  style: ListTileStyle.list,
+
+                  leading: Text(text),
+                  trailing: Switch.adaptive(
+                      value: value.isGlassMode,
+                      onChanged: (value) {
+                        provider.toggleDesignMode(value);
+                       Navigator.pop(context);
+                      }),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
-      width: MediaQuery.of(context).size.width,
-      height: 500,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(20.r),
-        border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
-        boxShadow: [
-          const BoxShadow(
-            color: Colors.white,
-            blurRadius: 10,
-            spreadRadius: 1,
-            offset: Offset(-5, -5), // changes position of shadow
           ),
-          BoxShadow(
-            color: Colors.grey.shade400,
-            blurRadius: 18,
-            spreadRadius: 1,
-            offset: const Offset(5, 5), // changes position of shadow
+          width: MediaQuery.of(context).size.width,
+          height: 500,
+          decoration: BoxDecoration(
+            color: widget.color,
+            borderRadius: BorderRadius.circular(20.r),
+            border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
+            boxShadow: [
+              const BoxShadow(
+                color: Colors.white,
+                blurRadius: 10,
+                spreadRadius: 1,
+                offset: Offset(-5, -5), // changes position of shadow
+              ),
+              BoxShadow(
+                color: Colors.grey.shade400,
+                blurRadius: 18,
+                spreadRadius: 1,
+                offset: const Offset(5, 5), // changes position of shadow
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

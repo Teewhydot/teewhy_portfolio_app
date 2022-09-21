@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/neumorphic_container.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/skill_card.dart';
 import 'package:teewhy_portfolio_app/generated/assets.dart';
+import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 import 'package:teewhy_portfolio_app/screens/portfolio.dart';
 
 class Skills extends StatefulWidget {
@@ -20,7 +22,8 @@ class _SkillsState extends State<Skills> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    return glassMode
+    final providerListen = Provider.of<DesignModeProvider>(context);
+    return providerListen.isGlassMode
         ? Scaffold(
             body: Container(
               decoration: const BoxDecoration(
@@ -31,68 +34,65 @@ class _SkillsState extends State<Skills> {
               ),
               child: Column(
                 children: [
-                  addVerticalSpacing(20),
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      children: [
-                        CustomAppBarGlass(
-                          MediaQuery.of(context).size.width,
-                          100.0,
-                          'Skills',
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 20),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Container(
-                                    width: 50.w,
-                                    height: 40.h,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: const Icon(
-                                      color: Colors.black,
-                                      Icons.arrow_back_ios,
-                                      size: 30,
-                                    ),
+                  scaffoldSpacing,
+                  Row(
+                    children: [
+                      CustomAppBarGlass(
+                        MediaQuery.of(context).size.width,
+                        100.0,
+                        'Skills',
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  width: 50.w,
+                                  height: 40.h,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: const Icon(
+                                    color: Colors.black,
+                                    Icons.arrow_back_ios,
+                                    size: 30,
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 20),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Portfolio()));
-                                  },
-                                  child: Container(
-                                    width: 50.w,
-                                    height: 40.h,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: const Icon(
-                                      color: Colors.black,
-                                      Icons.arrow_forward_ios,
-                                      size: 30,
-                                    ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Portfolio()));
+                                },
+                                child: Container(
+                                  width: 50.w,
+                                  height: 40.h,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: const Icon(
+                                    color: Colors.black,
+                                    Icons.arrow_forward_ios,
+                                    size: 30,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   Expanded(
                     flex: 5,
@@ -138,10 +138,10 @@ class _SkillsState extends State<Skills> {
             ),
           )
         : Scaffold(
-      backgroundColor: Colors.grey[300],
+            backgroundColor: Colors.grey[300],
             body: Column(
               children: [
-                addVerticalSpacing(60),
+                scaffoldSpacing,
                 Padding(
                   padding: EdgeInsets.only(left: 20.w, right: 20.w),
                   child: NeumorphicContainer(
@@ -212,7 +212,6 @@ class _SkillsState extends State<Skills> {
                       height: 100.0,
                       color: Colors.grey[300]),
                 ),
-
                 addVerticalSpacing(40),
                 Expanded(
                   flex: 5,
@@ -222,20 +221,32 @@ class _SkillsState extends State<Skills> {
                       Row(
                         children: [
                           const Expanded(
-                              child: SkillCardNeumorphic(skillName: 'Flutter', skillIcon: Icon(Icons.connected_tv_sharp),) ),
+                              child: SkillCardNeumorphic(
+                            skillName: 'Flutter',
+                            skillIcon: Icon(Icons.connected_tv_sharp),
+                          )),
                           addHorizontalSpacing(10),
                           const Expanded(
-                              child: SkillCardNeumorphic(skillName: 'Flutter', skillIcon: Icon(Icons.connected_tv_sharp),) ),
+                              child: SkillCardNeumorphic(
+                            skillName: 'Flutter',
+                            skillIcon: Icon(Icons.connected_tv_sharp),
+                          )),
                         ],
                       ),
                       addVerticalSpacing(10),
                       Row(
                         children: [
                           const Expanded(
-                              child: SkillCardNeumorphic(skillName: 'Flutter', skillIcon: Icon(Icons.connected_tv_sharp),) ),
+                              child: SkillCardNeumorphic(
+                            skillName: 'Flutter',
+                            skillIcon: Icon(Icons.connected_tv_sharp),
+                          )),
                           addHorizontalSpacing(10),
                           const Expanded(
-                              child: SkillCardNeumorphic(skillName: 'Flutter', skillIcon: Icon(Icons.connected_tv_sharp),) ),
+                              child: SkillCardNeumorphic(
+                            skillName: 'Flutter',
+                            skillIcon: Icon(Icons.connected_tv_sharp),
+                          )),
                         ],
                       ),
                     ],
