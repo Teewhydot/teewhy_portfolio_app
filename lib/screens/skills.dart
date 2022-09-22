@@ -38,14 +38,14 @@ class _SkillsState extends State<Skills> {
                   scaffoldSpacing,
                   Row(
                     children: [
-                      CustomAppBarGlass(
+                      GlassAppBar(
                         MediaQuery.of(context).size.width,
                         100.0.h,
                         'Skills',
                         Row(
                           children: [
                             Padding(
-                              padding:  EdgeInsets.only(right: 20.r),
+                              padding: EdgeInsets.only(right: 20.r),
                               child: GestureDetector(
                                 onTap: () {
                                   Navigator.pop(context);

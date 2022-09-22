@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
@@ -11,7 +13,7 @@ class NeumorphicProfileContainer extends StatelessWidget {
   final height;
   final color;
 
-  NeumorphicProfileContainer(
+  const NeumorphicProfileContainer(
       {Key? key,
       required this.image,
       required this.name,
@@ -20,6 +22,7 @@ class NeumorphicProfileContainer extends StatelessWidget {
       required this.height,
       required this.color})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -95,7 +98,7 @@ class NeumorphicProfileContainer extends StatelessWidget {
               color: Colors.white,
               blurRadius: 10.r,
               spreadRadius: 1,
-              offset: Offset(-5, -5), // changes position of shadow
+              offset: const Offset(-5, -5), // changes position of shadow
             ),
             BoxShadow(
               color: Colors.grey.shade400,

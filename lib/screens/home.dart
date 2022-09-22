@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/measure.dart';
-import 'package:teewhy_portfolio_app/Reusable/widgets/neirmorphic_profile_container.dart';
-import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
-import 'package:teewhy_portfolio_app/screens/skills.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
+import 'package:teewhy_portfolio_app/Reusable/widgets/neirmorphic_profile_container.dart';
+import 'package:teewhy_portfolio_app/Reusable/widgets/neumorphic_container.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/profile_container.dart';
 import 'package:teewhy_portfolio_app/generated/assets.dart';
-import 'package:teewhy_portfolio_app/Reusable/widgets/neumorphic_container.dart';
+import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 import 'package:teewhy_portfolio_app/screens/settings.dart';
+import 'package:teewhy_portfolio_app/screens/skills.dart';
 import 'package:toast/toast.dart';
+
 import '../Reusable/constants.dart';
 
 class HomePage extends StatelessWidget {
@@ -54,18 +56,18 @@ class _TeeWhyState extends State<TeeWhy> {
                   Column(
                     children: [
                    scaffoldSpacing,
-                      CustomAppBarGlass(
+                      GlassAppBar(
                         MediaQuery.of(context).size.width,
                         100.0.h,
                         'Tee_of_GUI',
                         Row(
                           children: [
                             Padding(
-                              padding:  EdgeInsets.only(right: 20.r),
+                              padding: EdgeInsets.only(right: 20.r),
                               child: GestureDetector(
                                 onTap: () {
                                   Navigator.push(
-                                    context,
+                                      context,
                                   PageTransition(child: const Skills(), type: PageTransitionType.rightToLeft,isIos: true)
                                   );
                                 },
@@ -152,6 +154,7 @@ class _TeeWhyState extends State<TeeWhy> {
                           });
 
                         },
+                        //NeumorphicAppBar
                         child: NeumorphicContainer(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -160,8 +163,12 @@ class _TeeWhyState extends State<TeeWhy> {
                                   padding: EdgeInsets.only(left: 10.w),
                                   child: Text(
                                     'Tee_of_GUI',
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 20.sp),
+                                    // style: TextStyle(
+                                    //     color: Colors.black, fontSize: 20.sp),
+                                    style: GoogleFonts.leagueSpartan(
+                                      color: Colors.black,
+                                      fontSize: 25.sp,
+                                    ),
                                   ),
                                 ),
                                 Row(

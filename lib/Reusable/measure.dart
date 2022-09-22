@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 
-typedef void OnWidgetSizeChange(Size size);
+typedef OnWidgetSizeChange = void Function(Size size);
 
 class MeasureSizeRenderObject extends RenderProxyBox {
   Size? oldSize;
@@ -18,7 +18,7 @@ class MeasureSizeRenderObject extends RenderProxyBox {
     if (oldSize == newSize) return;
 
     oldSize = newSize;
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       onChange(newSize);
     });
   }
@@ -36,5 +36,31 @@ class MeasureSize extends SingleChildRenderObjectWidget {
   @override
   RenderObject createRenderObject(BuildContext context) {
     return MeasureSizeRenderObject(onChange);
+  }
+}
+
+class FunctiontoMeasureAnyWidget extends StatefulWidget {
+  const FunctiontoMeasureAnyWidget({Key? key}) : super(key: key);
+
+  @override
+  State<FunctiontoMeasureAnyWidget> createState() =>
+      _FunctiontoMeasureAnyWidgetState();
+}
+
+class _FunctiontoMeasureAnyWidgetState
+    extends State<FunctiontoMeasureAnyWidget> {
+  @override
+  Widget build(BuildContext context) {
+    MeasureSize(
+      child: Container(),
+      onChange: (size) {
+        var myChildSize = Size.zero;
+        setState(() {
+          myChildSize = size;
+          print(myChildSize);
+        });
+      },
+    );
+    return Container();
   }
 }

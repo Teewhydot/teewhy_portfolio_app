@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
-import 'package:teewhy_portfolio_app/Reusable/measure.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/neumorphic_container.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/portfolio_card.dart';
@@ -36,7 +35,7 @@ class _PortfolioState extends State<Portfolio> {
                   scaffoldSpacing,
                   Row(
                     children: [
-                      CustomAppBarGlass(
+                      GlassAppBar(
                         MediaQuery.of(context).size.width,
                         100.0.h,
                         'Portfolio',
@@ -68,39 +67,30 @@ class _PortfolioState extends State<Portfolio> {
                       ),
                     ],
                   ),
-                  MeasureSize(
-                    onChange: (size) {
-                      var myChildSize = Size.zero;
-                      setState(() {
-                        myChildSize = size;
-                        print(myChildSize);
-                      });
-                    },
-                    child: SizedBox(
-                      height: 650.h,
-                      child: ListView(
-                        children: [
-                          const PortfolioCardGlass(
-                              projectName: 'Calc',
-                              projectDescription: "Calc",
-                              projectImage: Assets.imagesGb,
-                              githubRepositoryLink: 'https://google.com',
-                              netlifySiteLink: 'www'),
-                          addVerticalSpacing(10),
-                          const PortfolioCardGlass(
-                              projectName: 'Calc',
-                              projectDescription: "Calc",
-                              projectImage: Assets.imagesGb,
-                              githubRepositoryLink: 'https//google.com',
-                              netlifySiteLink: 'www'),
-                          const PortfolioCardGlass(
-                              projectName: 'Calc',
-                              projectDescription: "Calc",
-                              projectImage: Assets.imagesGb,
-                              githubRepositoryLink: 'https//google.com',
-                              netlifySiteLink: 'www'),
-                        ],
-                      ),
+                  SizedBox(
+                    height: 650.h,
+                    child: ListView(
+                      children: [
+                        const PortfolioCardGlass(
+                            projectName: 'Calc',
+                            projectDescription: "Calc",
+                            projectImage: Assets.imagesGb,
+                            githubRepositoryLink: 'https://google.com',
+                            netlifySiteLink: 'www'),
+                        addVerticalSpacing(10),
+                        const PortfolioCardGlass(
+                            projectName: 'Calc',
+                            projectDescription: "Calc",
+                            projectImage: Assets.imagesGb,
+                            githubRepositoryLink: 'https//google.com',
+                            netlifySiteLink: 'www'),
+                        const PortfolioCardGlass(
+                            projectName: 'Calc',
+                            projectDescription: "Calc",
+                            projectImage: Assets.imagesGb,
+                            githubRepositoryLink: 'https//google.com',
+                            netlifySiteLink: 'www'),
+                      ],
                     ),
                   ),
                 ],

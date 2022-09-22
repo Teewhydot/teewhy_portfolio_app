@@ -86,8 +86,7 @@ class PortfolioCardGlass extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       launchURL(
-                        githubRepositoryLink,
-                      );
+                        githubRepositoryLink, context);
                     },
                     child:  Text(
                       'View on Github',
@@ -99,7 +98,7 @@ class PortfolioCardGlass extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      launchURL(netlifySiteLink);
+                      launchURL(netlifySiteLink, context);
                     },
                     child: Text(
                       'Launch on Netlify',
@@ -178,8 +177,7 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       launchURL(
-                        githubRepositoryLink,
-                      );
+                          githubRepositoryLink, context);
                     },
                     child: Text(
                       'View on Github',
@@ -191,7 +189,7 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      launchURL(netlifySiteLink);
+                      launchURL(netlifySiteLink, context);
                     },
                     child:  Text(
                       'Launch on Netlify',

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:glassmorphism/glassmorphism.dart';
@@ -53,7 +55,7 @@ class _SettingsGlassState extends State<SettingsGlass> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 addVerticalSpacing(30),
-                 Text('Settings',
+                Text('Settings',
                     style: TextStyle(
                         fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
@@ -68,7 +70,7 @@ class _SettingsGlassState extends State<SettingsGlass> {
                       value: providerListen.isGlassMode,
                       onChanged: (value) {
                         provider.toggleDesignMode(value);
-                    Navigator.pop(context);
+                        Navigator.pop(context);
                       }),
                 ),
               ],
@@ -80,6 +82,7 @@ class _SettingsGlassState extends State<SettingsGlass> {
 
 class SettingsNeumorphic extends StatefulWidget {
   final color;
+
   const SettingsNeumorphic({super.key, this.color});
 
   @override
@@ -114,7 +117,7 @@ class _SettingsNeumorphicState extends State<SettingsNeumorphic> {
                       value: value.isGlassMode,
                       onChanged: (value) {
                         provider.toggleDesignMode(value);
-                       Navigator.pop(context);
+                        Navigator.pop(context);
                       }),
                 ),
               ],
@@ -131,7 +134,7 @@ class _SettingsNeumorphicState extends State<SettingsNeumorphic> {
                 color: Colors.white,
                 blurRadius: 10.r,
                 spreadRadius: 1,
-                offset: Offset(-5, -5), // changes position of shadow
+                offset: const Offset(-5, -5), // changes position of shadow
               ),
               BoxShadow(
                 color: Colors.grey.shade400,

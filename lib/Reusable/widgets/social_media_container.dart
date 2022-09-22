@@ -1,5 +1,9 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 
 class SocialMediaContainer extends StatelessWidget {
   const SocialMediaContainer({super.key});
@@ -7,11 +11,20 @@ class SocialMediaContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        SmItem(const Icon(Icons.facebook), () {}),
-        SmItem(const Icon(Icons.facebook), () {}),
-        SmItem(const Icon(Icons.gite_outlined), () {}),
-        SmItem(const Icon(Icons.linked_camera), () {}),
+        SmItem(const Icon(FontAwesomeIcons.facebook), () {
+          launchURL('https://facebook.com', context);
+        }),
+        SmItem(const Icon(FontAwesomeIcons.twitter), () {
+          launchURL('https://twitter.com', context);
+        }),
+        SmItem(const Icon(FontAwesomeIcons.linkedin), () {
+          launchURL('https://linkedin.com', context);
+        }),
+        SmItem(const Icon(FontAwesomeIcons.github), () {
+          launchURL('https://github.com', context);
+        }),
       ],
     );
   }
@@ -20,6 +33,7 @@ class SocialMediaContainer extends StatelessWidget {
 class SmItem extends StatelessWidget {
   final Icon icon;
   final onTap;
+
   const SmItem(this.icon, this.onTap, {super.key});
 
   @override

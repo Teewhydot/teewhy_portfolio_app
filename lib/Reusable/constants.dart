@@ -19,15 +19,23 @@ Widget addHorizontalSpacing(double width) {
   );
 }
 
-void launchURL(String url) async {
+void launchURL(String url, BuildContext context) async {
+  ToastContext().init(context);
   if (await canLaunchUrlString(
-      url,)) {
-    await launchUrlString(url,mode: LaunchMode.inAppWebView, webViewConfiguration: const WebViewConfiguration(
-      enableJavaScript: true,
-      enableDomStorage: true,
-    ));
+    url,
+  )) {
+    await launchUrlString(url,
+        mode: LaunchMode.inAppWebView,
+        webViewConfiguration: const WebViewConfiguration(
+          enableJavaScript: true,
+          enableDomStorage: true,
+        ));
   } else {
-    throw 'Could not launch $url';
+    Toast.show("Could not launch website.",
+        textStyle: const TextStyle(color: Colors.white),
+        duration: Toast.lengthShort,
+        gravity: Toast.center,
+        backgroundColor: Colors.white.withOpacity(0.05));
   }
 }
 
