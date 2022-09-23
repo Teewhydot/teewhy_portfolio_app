@@ -6,7 +6,6 @@ import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 class PortfolioCardGlass extends StatelessWidget {
   final String projectName;
   final String projectDescription;
-  final String projectImage;
   final String githubRepositoryLink;
   final String netlifySiteLink;
 
@@ -14,7 +13,6 @@ class PortfolioCardGlass extends StatelessWidget {
       {super.key,
       required this.projectName,
       required this.projectDescription,
-      required this.projectImage,
       required this.githubRepositoryLink,
       required this.netlifySiteLink});
 
@@ -51,19 +49,8 @@ class PortfolioCardGlass extends StatelessWidget {
         ),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                width: 100.w,
-                height: 100.h,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(projectImage),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
               Text(
                 projectName,
                 style: const TextStyle(
@@ -122,7 +109,6 @@ class PortfolioCardGlass extends StatelessWidget {
 class PortfolioCardNeurmorphic extends StatelessWidget {
   final String projectName;
   final String projectDescription;
-  final String projectImage;
   final String githubRepositoryLink;
   final String netlifySiteLink;
 
@@ -130,7 +116,6 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
       {super.key,
         required this.projectName,
         required this.projectDescription,
-        required this.projectImage,
         required this.githubRepositoryLink,
         required this.netlifySiteLink});
 
@@ -141,24 +126,12 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
       child: Container(
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                width: 100.w,
-                height: 100.h,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-
-                    image: AssetImage(projectImage,),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: BorderRadius.circular(20.r),
-                ),
-              ),
               Text(
                 projectName,
-                style:  TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: Colors.black,
                   fontSize: 20.sp,
                 ),
               ),
@@ -166,7 +139,7 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
               Text(
                 projectDescription,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 15.sp,
                 ),
               ),
@@ -182,7 +155,7 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
                     child: Text(
                       'View on Github',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 15.sp,
                       ),
                     ),
@@ -194,7 +167,7 @@ class PortfolioCardNeurmorphic extends StatelessWidget {
                     child:  Text(
                       'Launch on Netlify',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 15.sp,
                       ),
                     ),

@@ -83,7 +83,7 @@ class SkillCardNeumorphic extends StatelessWidget {
               Text(
                 skillName,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 20.sp,
                 ),
               ),

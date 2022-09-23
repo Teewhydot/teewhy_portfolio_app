@@ -109,7 +109,7 @@ class _SkillsState extends State<Skills> {
                             addHorizontalSpacing(10),
                             const Expanded(
                                 child: SkillCardGlass(
-                                    skillName: 'Flutter',
+                                    skillName: 'Dart',
                                     skillIcon: Icon(Icons.padding_outlined),
                                     skillColor: Colors.red)),
                           ],
@@ -119,13 +119,13 @@ class _SkillsState extends State<Skills> {
                           children: [
                             const Expanded(
                                 child: SkillCardGlass(
-                                    skillName: 'Flutter',
+                                    skillName: 'API',
                                     skillIcon: Icon(Icons.padding_outlined),
                                     skillColor: Colors.red)),
                             addHorizontalSpacing(10),
                             const Expanded(
                                 child: SkillCardGlass(
-                                    skillName: 'Flutter',
+                                    skillName: 'Firebase',
                                     skillIcon: Icon(Icons.padding_outlined),
                                     skillColor: Colors.red)),
                           ],
@@ -227,7 +227,7 @@ class _SkillsState extends State<Skills> {
                           addHorizontalSpacing(10),
                           const Expanded(
                               child: SkillCardNeumorphic(
-                            skillName: 'Flutter',
+                                skillName: 'Dart',
                             skillIcon: Icon(Icons.connected_tv_sharp),
                           )),
                         ],
@@ -237,13 +237,13 @@ class _SkillsState extends State<Skills> {
                         children: [
                           const Expanded(
                               child: SkillCardNeumorphic(
-                            skillName: 'Flutter',
+                                skillName: 'API',
                             skillIcon: Icon(Icons.connected_tv_sharp),
                           )),
                           addHorizontalSpacing(10),
                           const Expanded(
                               child: SkillCardNeumorphic(
-                            skillName: 'Flutter',
+                                skillName: 'Firebase',
                             skillIcon: Icon(Icons.connected_tv_sharp),
                           )),
                         ],
