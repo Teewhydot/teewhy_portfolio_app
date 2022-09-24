@@ -8,6 +8,7 @@ import 'package:teewhy_portfolio_app/Reusable/widgets/neumorphic_container.dart'
 import 'package:teewhy_portfolio_app/Reusable/widgets/skill_card.dart';
 import 'package:teewhy_portfolio_app/generated/assets.dart';
 import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
+import 'package:teewhy_portfolio_app/screens/home.dart';
 import 'package:teewhy_portfolio_app/screens/portfolio.dart';
 
 class Skills extends StatefulWidget {
@@ -47,47 +48,36 @@ class _SkillsState extends State<Skills> {
                             Padding(
                               padding: EdgeInsets.only(right: 20.r),
                               child: GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Container(
-                                  width: 50.w,
-                                  height: 40.h,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10.r),
-                                  ),
-                                  child: Icon(
-                                    color: Colors.black,
-                                    Icons.arrow_back_ios,
-                                    size: 30.sp,
-                                  ),
-                                ),
-                              ),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: AppbarButton(
+                                    icon: Icon(
+                                      color: Colors.white,
+                                      Icons.arrow_back_ios,
+                                      size: 30.sp,
+                                    ),
+                                  )),
                             ),
                             Padding(
                               padding: EdgeInsets.only(right: 20.r),
                               child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      PageTransition(child: const Portfolio(), type: PageTransitionType.rightToLeft,isIos: true)
-                                  );
-                                },
-                                child: Container(
-                                  width: 50.w,
-                                  height: 40.h,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Icon(
-                                    color: Colors.black,
-                                    Icons.arrow_forward_ios,
-                                    size: 30.sp,
-                                  ),
-                                ),
-                              ),
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        PageTransition(
+                                            child: const Portfolio(),
+                                            type:
+                                                PageTransitionType.rightToLeft,
+                                            isIos: true));
+                                  },
+                                  child: AppbarButton(
+                                    icon: Icon(
+                                      color: Colors.white,
+                                      Icons.arrow_forward_ios,
+                                      size: 30.sp,
+                                    ),
+                                  )),
                             ),
                           ],
                         ),
@@ -104,13 +94,15 @@ class _SkillsState extends State<Skills> {
                             const Expanded(
                                 child: SkillCardGlass(
                                     skillName: 'Flutter',
-                                    skillIcon: Icon(Icons.padding_outlined),
+                                    skillIcon: Image(
+                                        image: AssetImage(Assets.imagesGb)),
                                     skillColor: Colors.red)),
                             addHorizontalSpacing(10),
                             const Expanded(
                                 child: SkillCardGlass(
                                     skillName: 'Dart',
-                                    skillIcon: Icon(Icons.padding_outlined),
+                                    skillIcon: Image(
+                                        image: AssetImage(Assets.imagesGb)),
                                     skillColor: Colors.red)),
                           ],
                         ),
@@ -120,13 +112,15 @@ class _SkillsState extends State<Skills> {
                             const Expanded(
                                 child: SkillCardGlass(
                                     skillName: 'API',
-                                    skillIcon: Icon(Icons.padding_outlined),
+                                    skillIcon: Image(
+                                        image: AssetImage(Assets.imagesGb)),
                                     skillColor: Colors.red)),
                             addHorizontalSpacing(10),
                             const Expanded(
                                 child: SkillCardGlass(
                                     skillName: 'Firebase',
-                                    skillIcon: Icon(Icons.padding_outlined),
+                                    skillIcon: Image(
+                                        image: AssetImage(Assets.imagesGb)),
                                     skillColor: Colors.red)),
                           ],
                         ),
@@ -222,13 +216,15 @@ class _SkillsState extends State<Skills> {
                           const Expanded(
                               child: SkillCardNeumorphic(
                             skillName: 'Flutter',
-                            skillIcon: Icon(Icons.connected_tv_sharp),
+                            skillIcon:
+                                Image(image: AssetImage(Assets.imagesGb)),
                           )),
                           addHorizontalSpacing(10),
                           const Expanded(
                               child: SkillCardNeumorphic(
                                 skillName: 'Dart',
-                            skillIcon: Icon(Icons.connected_tv_sharp),
+                            skillIcon:
+                                Image(image: AssetImage(Assets.imagesGb)),
                           )),
                         ],
                       ),
@@ -238,13 +234,15 @@ class _SkillsState extends State<Skills> {
                           const Expanded(
                               child: SkillCardNeumorphic(
                                 skillName: 'API',
-                            skillIcon: Icon(Icons.connected_tv_sharp),
+                            skillIcon:
+                                Image(image: AssetImage(Assets.imagesGb)),
                           )),
                           addHorizontalSpacing(10),
                           const Expanded(
                               child: SkillCardNeumorphic(
                                 skillName: 'Firebase',
-                            skillIcon: Icon(Icons.connected_tv_sharp),
+                            skillIcon:
+                                Image(image: AssetImage(Assets.imagesGb)),
                           )),
                         ],
                       ),
