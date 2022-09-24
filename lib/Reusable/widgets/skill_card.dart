@@ -5,7 +5,7 @@ import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 
 class SkillCardGlass extends StatelessWidget {
   final String skillName;
-  final Image skillIcon;
+  final skillIcon;
   final Color skillColor;
 
   const SkillCardGlass(
@@ -66,7 +66,7 @@ class SkillCardGlass extends StatelessWidget {
 
 class SkillCardNeumorphic extends StatelessWidget {
   final String skillName;
-  final Image skillIcon;
+  final skillIcon;
 
   const SkillCardNeumorphic({
     super.key,

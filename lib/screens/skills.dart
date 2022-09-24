@@ -95,32 +95,31 @@ class _SkillsState extends State<Skills> {
                                 child: SkillCardGlass(
                                     skillName: 'Flutter',
                                     skillIcon: Image(
-                                        image: AssetImage(Assets.imagesGb)),
+                                        image:
+                                            AssetImage(Assets.assetsFlutter)),
                                     skillColor: Colors.red)),
                             addHorizontalSpacing(10),
                             const Expanded(
                                 child: SkillCardGlass(
                                     skillName: 'Dart',
                                     skillIcon: Image(
-                                        image: AssetImage(Assets.imagesGb)),
+                                        image: AssetImage(Assets.assetsDartc)),
                                     skillColor: Colors.red)),
                           ],
                         ),
                         addVerticalSpacing(10),
                         Row(
                           children: [
-                            const Expanded(
+                            Expanded(
                                 child: SkillCardGlass(
                                     skillName: 'API',
-                                    skillIcon: Image(
-                                        image: AssetImage(Assets.imagesGb)),
+                                    skillIcon: api,
                                     skillColor: Colors.red)),
                             addHorizontalSpacing(10),
-                            const Expanded(
+                            Expanded(
                                 child: SkillCardGlass(
                                     skillName: 'Firebase',
-                                    skillIcon: Image(
-                                        image: AssetImage(Assets.imagesGb)),
+                                    skillIcon: firebase,
                                     skillColor: Colors.red)),
                           ],
                         ),
@@ -215,34 +214,30 @@ class _SkillsState extends State<Skills> {
                         children: [
                           const Expanded(
                               child: SkillCardNeumorphic(
-                            skillName: 'Flutter',
+                                skillName: 'Flutter',
                             skillIcon:
-                                Image(image: AssetImage(Assets.imagesGb)),
+                                Image(image: AssetImage(Assets.assetsFlutter)),
                           )),
                           addHorizontalSpacing(10),
                           const Expanded(
                               child: SkillCardNeumorphic(
-                                skillName: 'Dart',
+                            skillName: 'Dart',
                             skillIcon:
-                                Image(image: AssetImage(Assets.imagesGb)),
+                                Image(image: AssetImage(Assets.assetsDartc)),
                           )),
                         ],
                       ),
-                      addVerticalSpacing(10),
+                      addVerticalSpacing(20),
                       Row(
                         children: [
-                          const Expanded(
+                          Expanded(
                               child: SkillCardNeumorphic(
-                                skillName: 'API',
-                            skillIcon:
-                                Image(image: AssetImage(Assets.imagesGb)),
-                          )),
+                                  skillName: 'API', skillIcon: api)),
                           addHorizontalSpacing(10),
-                          const Expanded(
+                          Expanded(
                               child: SkillCardNeumorphic(
-                                skillName: 'Firebase',
-                            skillIcon:
-                                Image(image: AssetImage(Assets.imagesGb)),
+                            skillName: 'Firebase',
+                            skillIcon: firebase,
                           )),
                         ],
                       ),

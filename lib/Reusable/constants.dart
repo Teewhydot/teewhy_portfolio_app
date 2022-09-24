@@ -1,6 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import 'package:teewhy_portfolio_app/generated/assets.dart';
+import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 import 'package:toast/toast.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -50,11 +53,12 @@ String? encodeQueryParameters(Map<String, String> params) {
 
 void launchEmail(BuildContext context) async {
   ToastContext().init(context);
+  final providerListen = Provider.of<DesignModeProvider>(context);
   final Uri emailLaunchUri = Uri(
     scheme: 'mailto',
     path: 'administrator@gmail.com',
     query: encodeQueryParameters(<String, String>{
-      'subject':'I have a Job for you',
+      'subject': 'I have a Job for you',
     }),
   );
 
@@ -62,10 +66,18 @@ void launchEmail(BuildContext context) async {
     await launchUrl(emailLaunchUri);
   } else {
     Toast.show("No email app found on device",
-        textStyle: const TextStyle(color: Colors.white),
+        textStyle: TextStyle(
+            color: providerListen.isGlassMode ? Colors.white : Colors.black),
         duration: Toast.lengthShort,
         gravity: Toast.center,
         backgroundColor: Colors.white.withOpacity(0.05));
   }
-
 }
+
+final Widget flutter = SvgPicture.asset(Assets.assetsFlutter);
+
+final Widget api = SvgPicture.asset(Assets.assetsCloudapi);
+
+final Widget dart = SvgPicture.asset(Assets.assetsDartc);
+
+final Widget firebase = SvgPicture.asset(Assets.assetsFirebase);
