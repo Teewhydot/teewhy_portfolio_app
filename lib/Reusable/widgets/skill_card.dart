@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 
 class SkillCardGlass extends StatelessWidget {
   final String skillName;
-  final Icon skillIcon;
+  final Image skillIcon;
   final Color skillColor;
 
   const SkillCardGlass(
@@ -46,7 +47,8 @@ class SkillCardGlass extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            skillIcon,
+            SizedBox(height: 60, width: 50, child: skillIcon),
+            addVerticalSpacing(10),
             Text(
               skillName,
               style: TextStyle(
@@ -64,12 +66,13 @@ class SkillCardGlass extends StatelessWidget {
 
 class SkillCardNeumorphic extends StatelessWidget {
   final String skillName;
-  final Icon skillIcon;
-  const SkillCardNeumorphic(
-      {super.key,
-        required this.skillName,
-        required this.skillIcon,
-      });
+  final Image skillIcon;
+
+  const SkillCardNeumorphic({
+    super.key,
+    required this.skillName,
+    required this.skillIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +82,8 @@ class SkillCardNeumorphic extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              skillIcon,
+              SizedBox(height: 60, width: 50, child: skillIcon),
+              addVerticalSpacing(10),
               Text(
                 skillName,
                 style: TextStyle(

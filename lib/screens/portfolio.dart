@@ -7,6 +7,7 @@ import 'package:teewhy_portfolio_app/Reusable/widgets/neumorphic_container.dart'
 import 'package:teewhy_portfolio_app/Reusable/widgets/portfolio_card.dart';
 import 'package:teewhy_portfolio_app/generated/assets.dart';
 import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
+import 'package:teewhy_portfolio_app/screens/home.dart';
 
 class Portfolio extends StatefulWidget {
   const Portfolio({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class Portfolio extends StatefulWidget {
 
 class _PortfolioState extends State<Portfolio> {
   bool glassMode = false;
+
   @override
   Widget build(BuildContext context) {
     final providerListen = Provider.of<DesignModeProvider>(context);
@@ -44,23 +46,16 @@ class _PortfolioState extends State<Portfolio> {
                             Padding(
                               padding: EdgeInsets.only(right: 20.r),
                               child: GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Container(
-                                  width: 50.w,
-                                  height: 40.h,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10.r),
-                                  ),
-                                  child: Icon(
-                                    color: Colors.black,
-                                    Icons.arrow_back_ios,
-                                    size: 30.sp,
-                                  ),
-                                ),
-                              ),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: AppbarButton(
+                                    icon: Icon(
+                                      color: Colors.white,
+                                      Icons.arrow_back_ios,
+                                      size: 30.sp,
+                                    ),
+                                  )),
                             ),
                           ],
                         ),
@@ -74,19 +69,25 @@ class _PortfolioState extends State<Portfolio> {
                         const PortfolioCardGlass(
                             projectName: 'Calc',
                             projectDescription: "Basic calculator app",
-                            githubRepositoryLink: 'https://google.com',
-                            netlifySiteLink: 'www'),
+                            githubRepositoryLink:
+                                'https://github.com/Teewhydot/calc',
+                            netlifySiteLink:
+                                'https://calculater-app.netlify.app/#/'),
                         addVerticalSpacing(10),
                         const PortfolioCardGlass(
                             projectName: 'Rock Paper Scissors',
                             projectDescription: "Rock paper Scissors Game",
-                            githubRepositoryLink: 'https//google.com',
-                            netlifySiteLink: 'www'),
+                            githubRepositoryLink:
+                                'https://github.com/Teewhydot/rock_paper_scissors',
+                            netlifySiteLink:
+                                'https://rockpaperscissors-lizardspock.netlify.app/'),
                         const PortfolioCardGlass(
                             projectName: 'Clone Chat',
                             projectDescription: "Chat with your clones",
-                            githubRepositoryLink: 'https//google.com',
-                            netlifySiteLink: 'www'),
+                            githubRepositoryLink:
+                                'https://github.com/Teewhydot/clone_chat',
+                            netlifySiteLink:
+                                'https://clone-chatapp.netlify.app/'),
                       ],
                     ),
                   ),
@@ -151,21 +152,27 @@ class _PortfolioState extends State<Portfolio> {
                     children: [
                       const PortfolioCardNeurmorphic(
                           projectName: 'Calc',
-                          projectDescription: "Basic Calculator app",
-                          githubRepositoryLink: 'https://google.com',
-                          netlifySiteLink: 'www'),
+                          projectDescription: "Basic calculator app",
+                          githubRepositoryLink:
+                              'https://github.com/Teewhydot/calc',
+                          netlifySiteLink:
+                              'https://calculater-app.netlify.app/#/'),
                       addVerticalSpacing(10),
                       const PortfolioCardNeurmorphic(
                           projectName: 'Rock Paper Scissors',
-                          projectDescription: "Rock Paper Scissors Game",
-                          githubRepositoryLink: 'https://google.com',
-                          netlifySiteLink: 'www'),
+                          projectDescription: "Rock paper Scissors Game",
+                          githubRepositoryLink:
+                              'https://github.com/Teewhydot/rock_paper_scissors',
+                          netlifySiteLink:
+                              'https://rockpaperscissors-lizardspock.netlify.app/'),
                       addVerticalSpacing(10),
                       const PortfolioCardNeurmorphic(
-                          projectName: 'Clone Chat App',
+                          projectName: 'Clone Chat',
                           projectDescription: "Chat with your clones",
-                          githubRepositoryLink: 'https://google.com',
-                          netlifySiteLink: 'www'),
+                          githubRepositoryLink:
+                              'https://github.com/Teewhydot/clone_chat',
+                          netlifySiteLink:
+                              'https://clone-chatapp.netlify.app/'),
                     ],
                   ),
                 ),

@@ -64,10 +64,10 @@ class ProfileContainerGlass extends StatelessWidget {
                                   width: 100,
                                   child: TextButton(
                                       style: TextButton.styleFrom(
-                                        backgroundColor: Colors.white,
+                                        backgroundColor: Colors.black,
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
-                                          BorderRadius.circular(30.r),
+                                              BorderRadius.circular(30.r),
                                         ),
                                       ),
                                       onPressed: () async {
@@ -75,7 +75,7 @@ class ProfileContainerGlass extends StatelessWidget {
                                       },
                                       child: const Text(
                                         'Hire Me',
-                                        style: TextStyle(color: Colors.black),
+                                        style: TextStyle(color: Colors.white),
                                       )))),
                           addVerticalSpacing(20),
                           Row(
