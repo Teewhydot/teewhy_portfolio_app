@@ -4,8 +4,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/social_media_container.dart';
+import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 
 class ProfileContainerGlass extends StatelessWidget {
   final String image;
@@ -19,6 +21,7 @@ class ProfileContainerGlass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final providerListen = Provider.of<DesignModeProvider>(context);
     return ClipRRect(
       borderRadius: BorderRadius.circular(20.r),
       child: SizedBox(
