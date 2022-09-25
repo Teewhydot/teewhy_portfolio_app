@@ -46,4 +46,4 @@ flutter:
     - assets/images/
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/images/favicon-32x32.png
+  image: assets/images/logobgremoved.png

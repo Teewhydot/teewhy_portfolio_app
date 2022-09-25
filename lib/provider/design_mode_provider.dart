@@ -5,7 +5,7 @@ class DesignModeProvider extends ChangeNotifier {
   bool _glassMode = false;
 
   bool get isGlassMode => _glassMode == true;
-
+// this function updates the value of glass mode based on the selection of the user during the previous runtime.
   DesignModeProvider(isGlass) {
     _glassMode = isGlass ? true : false;
   }

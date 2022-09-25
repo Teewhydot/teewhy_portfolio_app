@@ -96,14 +96,14 @@ class _SkillsState extends State<Skills> {
                                     skillName: 'Flutter',
                                     skillIcon: Image(
                                         image:
-                                            AssetImage(Assets.assetsFlutter)),
+                                            AssetImage(Assets.imagesFlutter)),
                                     skillColor: Colors.blueGrey)),
                             addHorizontalSpacing(10),
                             const Expanded(
                                 child: SkillCardGlass(
                                     skillName: 'Dart',
                                     skillIcon: Image(
-                                        image: AssetImage(Assets.assetsDartc)),
+                                        image: AssetImage(Assets.imagesDartc)),
                                     skillColor: Colors.blue)),
                           ],
                         ),
@@ -216,14 +216,14 @@ class _SkillsState extends State<Skills> {
                               child: SkillCardNeumorphic(
                                 skillName: 'Flutter',
                             skillIcon:
-                                Image(image: AssetImage(Assets.assetsFlutter)),
+                                Image(image: AssetImage(Assets.imagesFlutter)),
                           )),
                           addHorizontalSpacing(10),
                           const Expanded(
                               child: SkillCardNeumorphic(
-                            skillName: 'Dart',
+                                skillName: 'Dart',
                             skillIcon:
-                                Image(image: AssetImage(Assets.assetsDartc)),
+                                Image(image: AssetImage(Assets.imagesDartc)),
                           )),
                         ],
                       ),

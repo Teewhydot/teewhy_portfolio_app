@@ -2,9 +2,10 @@
 class Assets {
   Assets._();
 
-  static const String assetsCloudapi = 'assets/cloud-api.svg';
-  static const String assetsDartc = 'assets/dartc.png';
+  static const String assetsCloudapi = 'assets/cloudapi.svg';
   static const String assetsFirebase = 'assets/firebase.svg';
-  static const String assetsFlutter = 'assets/flutter.png';
+  static const String imagesDartc = 'assets/images/dartc.png';
+  static const String imagesFlutter = 'assets/images/flutter.png';
   static const String imagesGb = 'assets/images/gb.jpg';
+  static const String imagesLogobgremoved = 'assets/images/logobgremoved.png';
 }

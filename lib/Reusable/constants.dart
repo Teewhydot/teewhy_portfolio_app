@@ -75,10 +75,10 @@ void launchEmail(BuildContext context) async {
   }
 }
 
-final Widget flutter = SvgPicture.asset(Assets.assetsFlutter);
+final Widget flutter = SvgPicture.asset(Assets.imagesFlutter);
 
 final Widget api = SvgPicture.asset(Assets.assetsCloudapi);
 
-final Widget dart = SvgPicture.asset(Assets.assetsDartc);
+final Widget dart = SvgPicture.asset(Assets.imagesDartc);
 
 final Widget firebase = SvgPicture.asset(Assets.assetsFirebase);
