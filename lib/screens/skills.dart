@@ -97,14 +97,14 @@ class _SkillsState extends State<Skills> {
                                     skillIcon: Image(
                                         image:
                                             AssetImage(Assets.assetsFlutter)),
-                                    skillColor: Colors.red)),
+                                    skillColor: Colors.blueGrey)),
                             addHorizontalSpacing(10),
                             const Expanded(
                                 child: SkillCardGlass(
                                     skillName: 'Dart',
                                     skillIcon: Image(
                                         image: AssetImage(Assets.assetsDartc)),
-                                    skillColor: Colors.red)),
+                                    skillColor: Colors.blue)),
                           ],
                         ),
                         addVerticalSpacing(10),
@@ -114,13 +114,13 @@ class _SkillsState extends State<Skills> {
                                 child: SkillCardGlass(
                                     skillName: 'API',
                                     skillIcon: api,
-                                    skillColor: Colors.red)),
+                                    skillColor: Colors.white)),
                             addHorizontalSpacing(10),
                             Expanded(
                                 child: SkillCardGlass(
                                     skillName: 'Firebase',
                                     skillIcon: firebase,
-                                    skillColor: Colors.red)),
+                                    skillColor: Colors.yellowAccent)),
                           ],
                         ),
                       ],

@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 
 import 'screens/home.dart';
 
-void main() {
-  runApp(ChangeNotifierProvider( create: (context)=> DesignModeProvider(), child: const MyApp()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  final isGlassFromStorage = sharedPreferences.getBool('isGlass') ?? false;
+
+  runApp(ChangeNotifierProvider(
+      create: (context) => DesignModeProvider(isGlassFromStorage),
+      child: MyApp(
+        isGlass: isGlassFromStorage,
+      )));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isGlass;
+
+  const MyApp({super.key, required this.isGlass});
 
   @override
   Widget build(BuildContext context) {

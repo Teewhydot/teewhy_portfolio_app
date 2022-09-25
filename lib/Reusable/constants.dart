@@ -53,10 +53,11 @@ String? encodeQueryParameters(Map<String, String> params) {
 
 void launchEmail(BuildContext context) async {
   ToastContext().init(context);
-  final providerListen = Provider.of<DesignModeProvider>(context);
+  final providerListen =
+      Provider.of<DesignModeProvider>(context, listen: false);
   final Uri emailLaunchUri = Uri(
     scheme: 'mailto',
-    path: 'administrator@gmail.com',
+    path: 'administrator@teeofgui.tech',
     query: encodeQueryParameters(<String, String>{
       'subject': 'I have a Job for you',
     }),
