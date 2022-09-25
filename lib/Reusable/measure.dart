@@ -57,7 +57,6 @@ class _FunctiontoMeasureAnyWidgetState
         var myChildSize = Size.zero;
         setState(() {
           myChildSize = size;
-          print(myChildSize);
         });
       },
     );
