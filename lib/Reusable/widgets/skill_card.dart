@@ -4,7 +4,7 @@ import 'package:glassmorphism/glassmorphism.dart';
 
 class SkillCardGlass extends StatelessWidget {
   final String skillName;
-  final Widget skillIcon;
+  final Icon skillIcon;
   final Color skillColor;
 
   const SkillCardGlass(
@@ -64,13 +64,12 @@ class SkillCardGlass extends StatelessWidget {
 
 class SkillCardNeumorphic extends StatelessWidget {
   final String skillName;
-  final Widget skillIcon;
-
-  const SkillCardNeumorphic({
-    super.key,
-    required this.skillName,
-    required this.skillIcon,
-  });
+  final Icon skillIcon;
+  const SkillCardNeumorphic(
+      {super.key,
+        required this.skillName,
+        required this.skillIcon,
+      });
 
   @override
   Widget build(BuildContext context) {
