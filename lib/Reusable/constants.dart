@@ -81,4 +81,8 @@ final Widget api = SvgPicture.asset(Assets.assetsCloudapi);
 
 final Widget dart = SvgPicture.asset(Assets.imagesDartc);
 
-final Widget firebase = SvgPicture.asset(Assets.assetsFirebase);
+final Widget firebase = SvgPicture.asset(
+  Assets.assetsFirebase,
+  height: 50,
+  width: 30,
+);

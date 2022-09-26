@@ -103,7 +103,9 @@ class _SkillsState extends State<Skills> {
                                 child: SkillCardGlass(
                                     skillName: 'Dart',
                                     skillIcon: Image(
-                                        image: AssetImage(Assets.imagesDartc)),
+                                        image: AssetImage(
+                                      Assets.imagesDartc,
+                                    )),
                                     skillColor: Colors.blue)),
                           ],
                         ),
