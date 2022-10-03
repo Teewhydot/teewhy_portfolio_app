@@ -2,102 +2,28 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 
 import '../provider/design_mode_provider.dart';
 
-class SettingsGlass extends StatefulWidget {
-  const SettingsGlass({super.key});
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
 
   @override
-  State<SettingsGlass> createState() => _SettingsGlassState();
+  State<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _SettingsGlassState extends State<SettingsGlass> {
+class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final providerListen = Provider.of<DesignModeProvider>(context);
     final provider = Provider.of<DesignModeProvider>(context, listen: false);
-    final text = providerListen.isGlassMode ? 'Glass Mode' : 'Neumorphic Mode';
-    return Container(
-        decoration: const BoxDecoration(),
-        child: GlassmorphicContainer(
-          width: MediaQuery.of(context).size.width,
-          height: 500.h,
-          borderRadius: 20.r,
-          blur: 30.r,
-          padding:  EdgeInsets.all(20.r),
-          alignment: Alignment.bottomCenter,
-          border: 2,
-          linearGradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                const Color(0xFFffffff).withOpacity(0.1),
-                const Color(0xFFFFFFFF).withOpacity(0.05),
-              ],
-              stops: const [
-                0.1,
-                1,
-              ]),
-          borderGradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              const Color(0xFFffffff).withOpacity(0.5),
-              const Color((0xFFFFFFFF)).withOpacity(0.5),
-            ],
-          ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                addVerticalSpacing(30),
-                Text('Settings',
-                    style: TextStyle(
-                        fontSize: 30.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white)),
-                ListTile(
-                  textColor: Colors.white,
-                  style: ListTileStyle.list,
-                  leading: Text(text),
-                  enabled: true,
-
-                  trailing: Switch.adaptive(
-                      value: providerListen.isGlassMode,
-                      onChanged: (value) {
-                        provider.toggleDesignMode(value);
-                        Navigator.pop(context);
-                      }),
-                ),
-              ],
-            ),
-          ),
-        ));
-  }
-}
-
-class SettingsNeumorphic extends StatefulWidget {
-  final color;
-
-  const SettingsNeumorphic({super.key, this.color});
-
-  @override
-  State<SettingsNeumorphic> createState() => _SettingsNeumorphicState();
-}
-
-class _SettingsNeumorphicState extends State<SettingsNeumorphic> {
-  @override
-  Widget build(BuildContext context) {
-    final providerListen = Provider.of<DesignModeProvider>(context);
-    final provider = Provider.of<DesignModeProvider>(context, listen: false);
-    final text = providerListen.isGlassMode ? 'Glass Mode' : 'Neumorphic Mode';
+    final text = providerListen.isDarkMode ? 'Dark Mode' : 'Bright Mode';
+    final textColor = providerListen.isDarkMode ? Colors.white : Colors.black;
     return Consumer<DesignModeProvider>(
       builder: (BuildContext context, value, Widget? child) {
-        return  Container(
+        return Container(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -107,14 +33,13 @@ class _SettingsNeumorphicState extends State<SettingsNeumorphic> {
                     style: TextStyle(
                         fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white)),
+                        color: textColor)),
                 ListTile(
-                  textColor: Colors.white,
+                  textColor: textColor,
                   style: ListTileStyle.list,
-
                   leading: Text(text),
                   trailing: Switch.adaptive(
-                      value: value.isGlassMode,
+                      value: value.isDarkMode,
                       onChanged: (value) {
                         provider.toggleDesignMode(value);
                         Navigator.pop(context);
@@ -126,21 +51,17 @@ class _SettingsNeumorphicState extends State<SettingsNeumorphic> {
           width: MediaQuery.of(context).size.width,
           height: 500.h,
           decoration: BoxDecoration(
-            color: widget.color,
             borderRadius: BorderRadius.circular(20.r),
-            border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
             boxShadow: [
               BoxShadow(
-                color: Colors.white,
-                blurRadius: 10.r,
-                spreadRadius: 1,
-                offset: const Offset(-5, -5), // changes position of shadow
+                color: providerListen.isDarkMode
+                    ? kBoxShadow1DarkMode
+                    : kBoxShadow1,
               ),
               BoxShadow(
-                color: Colors.grey.shade400,
-                blurRadius: 18,
-                spreadRadius: 1,
-                offset: const Offset(5, 5), // changes position of shadow
+                color: providerListen.isDarkMode
+                    ? kBoxShadow2darkMode
+                    : kBoxShadow2,
               ),
             ],
           ),

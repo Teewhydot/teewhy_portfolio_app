@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/social_media_container.dart';
+import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 
 class NeumorphicProfileContainer extends StatelessWidget {
   final String image;
@@ -25,8 +27,12 @@ class NeumorphicProfileContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final providerListen = Provider.of<DesignModeProvider>(context);
+    final textColor = providerListen.isDarkMode ? Colors.white : Colors.black;
+    final buttonColor = providerListen.isDarkMode ? Colors.black : Colors.white;
+
     return Padding(
-      padding:  EdgeInsets.only(left: 20.0.w, right: 20.0.w,bottom: 20.0.h),
+      padding: EdgeInsets.only(left: 20.0.w, right: 20.0.w, bottom: 20.0.h),
       child: Container(
         child: Center(
           child: Padding(
@@ -41,8 +47,7 @@ class NeumorphicProfileContainer extends StatelessWidget {
                       name,
                       style: TextStyle(
                         fontSize: 35.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
+                        color: textColor,
                       ),
                     ),
                     addVerticalSpacing(10),
@@ -51,7 +56,7 @@ class NeumorphicProfileContainer extends StatelessWidget {
                       desc,
                       style: TextStyle(
                         fontSize: 20.sp,
-                        color: Colors.black,
+                        color: textColor,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -62,7 +67,7 @@ class NeumorphicProfileContainer extends StatelessWidget {
                             width: 100,
                             child: TextButton(
                                 style: TextButton.styleFrom(
-                                  backgroundColor: Colors.white,
+                                  backgroundColor: buttonColor,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(30.r),
                                   ),
@@ -70,9 +75,9 @@ class NeumorphicProfileContainer extends StatelessWidget {
                                 onPressed: () async {
                                   launchEmail(context);
                                 },
-                                child: const Text(
+                                child: Text(
                                   'Hire Me',
-                                  style: TextStyle(color: Colors.black),
+                                  style: TextStyle(color: textColor),
                                 )))),
                     addVerticalSpacing(20),
                     Row(
@@ -90,21 +95,25 @@ class NeumorphicProfileContainer extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: color,
+          color: providerListen.isDarkMode
+              ? kBoxDecorationColorDarkMode
+              : kBoxDecorationColor,
           borderRadius: BorderRadius.circular(20.r),
           border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
           boxShadow: [
             BoxShadow(
-              color: Colors.white,
-              blurRadius: 10.r,
+              color:
+                  providerListen.isDarkMode ? kBoxShadow1DarkMode : kBoxShadow1,
+              blurRadius: 13.r,
               spreadRadius: 1,
-              offset: const Offset(-5, -5), // changes position of shadow
+              offset: const Offset(-4, -4), // changes position of shadow
             ),
             BoxShadow(
-              color: Colors.grey.shade400,
-              blurRadius: 18,
+              color:
+                  providerListen.isDarkMode ? kBoxShadow2darkMode : kBoxShadow2,
+              blurRadius: 15,
               spreadRadius: 1,
-              offset: const Offset(5, 5), // changes position of shadow
+              offset: const Offset(4, 4), // changes position of shadow
             ),
           ],
         ),

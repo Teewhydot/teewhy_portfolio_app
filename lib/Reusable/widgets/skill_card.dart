@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:provider/provider.dart';
 import 'package:teewhy_portfolio_app/Reusable/constants.dart';
+import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 
 class SkillCardGlass extends StatelessWidget {
   final String skillName;
@@ -76,6 +78,8 @@ class SkillCardNeumorphic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final providerListen = Provider.of<DesignModeProvider>(context);
+    final textColor = providerListen.isDarkMode ? Colors.white : Colors.black;
     return Container(
       child: Center(
         child: Center(
@@ -86,7 +90,7 @@ class SkillCardNeumorphic extends StatelessWidget {
               Text(
                 skillName,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: textColor,
                   fontSize: 20.sp,
                 ),
               ),
@@ -97,18 +101,22 @@ class SkillCardNeumorphic extends StatelessWidget {
       width: 150.0.w,
       height: 150.0.h,
       decoration: BoxDecoration(
-        color: Colors.grey[300],
+        color: providerListen.isDarkMode
+            ? kBoxDecorationColorDarkMode
+            : kBoxDecorationColor,
         borderRadius: BorderRadius.circular(20.r),
         border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
         boxShadow: [
-          const BoxShadow(
-            color: Colors.white,
+          BoxShadow(
+            color:
+                providerListen.isDarkMode ? kBoxShadow1DarkMode : kBoxShadow1,
             blurRadius: 10,
             spreadRadius: 1,
             offset: Offset(-5, -5), // changes position of shadow
           ),
           BoxShadow(
-            color: Colors.grey.shade400,
+            color:
+                providerListen.isDarkMode ? kBoxShadow2darkMode : kBoxShadow2,
             blurRadius: 18,
             spreadRadius: 1,
             offset: const Offset(5, 5), // changes position of shadow

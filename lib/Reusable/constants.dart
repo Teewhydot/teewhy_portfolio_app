@@ -9,6 +9,14 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 final scaffoldSpacing = addVerticalSpacing(40);
+final kScaffoldColor = Colors.grey[300];
+final kScaffoldColorDarkMode = Colors.grey[900];
+final kBoxDecorationColor = Colors.grey[300];
+final kBoxDecorationColorDarkMode = Colors.grey[900];
+final kBoxShadow1 = Colors.white;
+final kBoxShadow2 = Colors.grey.shade400;
+final kBoxShadow1DarkMode = Colors.black;
+final kBoxShadow2darkMode = Colors.grey.shade800;
 
 Widget addVerticalSpacing(double height) {
   return SizedBox(
@@ -42,14 +50,12 @@ void launchURL(String url, BuildContext context) async {
   }
 }
 
-
 String? encodeQueryParameters(Map<String, String> params) {
   return params.entries
       .map((MapEntry<String, String> e) =>
-  '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+          '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
       .join('&');
 }
-
 
 void launchEmail(BuildContext context) async {
   ToastContext().init(context);
@@ -68,7 +74,7 @@ void launchEmail(BuildContext context) async {
   } else {
     Toast.show("No email app found on device",
         textStyle: TextStyle(
-            color: providerListen.isGlassMode ? Colors.white : Colors.black),
+            color: providerListen.isDarkMode ? Colors.white : Colors.black),
         duration: Toast.lengthShort,
         gravity: Toast.center,
         backgroundColor: Colors.white.withOpacity(0.05));

@@ -8,7 +8,7 @@ import 'screens/home.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  final isGlassFromStorage = sharedPreferences.getBool('isGlass') ?? false;
+  final isGlassFromStorage = sharedPreferences.getBool('isDark') ?? false;
 
   runApp(ChangeNotifierProvider(
       create: (context) => DesignModeProvider(isGlassFromStorage),

@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DesignModeProvider extends ChangeNotifier {
-  bool _glassMode = false;
+  bool _darkMode = false;
 
-  bool get isGlassMode => _glassMode == true;
-// this function updates the value of glass mode based on the selection of the user during the previous runtime.
+  bool get isDarkMode => _darkMode == true;
+
   DesignModeProvider(isGlass) {
-    _glassMode = isGlass ? true : false;
+    _darkMode = isGlass ? true : false;
   }
 
   void toggleDesignMode(bool isGlass) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    _glassMode = isGlass ? true : false;
-    sharedPreferences.setBool('isGlass', _glassMode);
+    _darkMode = isGlass ? true : false;
+    sharedPreferences.setBool('isDark', _darkMode);
     notifyListeners();
   }
 }

@@ -3,10 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:teewhy_portfolio_app/Reusable/widgets/custom_app_bar.dart';
+import 'package:teewhy_portfolio_app/Reusable/widgets/app_bar%20button.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/neirmorphic_profile_container.dart';
 import 'package:teewhy_portfolio_app/Reusable/widgets/neumorphic_container.dart';
-import 'package:teewhy_portfolio_app/Reusable/widgets/profile_container.dart';
 import 'package:teewhy_portfolio_app/generated/assets.dart';
 import 'package:teewhy_portfolio_app/provider/design_mode_provider.dart';
 import 'package:teewhy_portfolio_app/screens/settings.dart';
@@ -23,12 +22,9 @@ class HomePage extends StatelessWidget {
     ToastContext().init(context);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      builder: (context, _) => MaterialApp(
+      builder: (context, _) => const MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const TeeWhy(),
+        home: TeeWhy(),
       ),
     );
   }
@@ -42,28 +38,42 @@ class TeeWhy extends StatefulWidget {
 }
 
 class _TeeWhyState extends State<TeeWhy> {
-  bool glassMode = false;
+  bool darkMode = false;
+
   @override
   Widget build(BuildContext context) {
     final providerListen = Provider.of<DesignModeProvider>(context);
-    return providerListen.isGlassMode
-        ? Scaffold(
-            body: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
+    final textColor = providerListen.isDarkMode ? Colors.white : Colors.black;
+    return Scaffold(
+      backgroundColor:
+          providerListen.isDarkMode ? kScaffoldColorDarkMode : kScaffoldColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            children: [
+              scaffoldSpacing,
+              Padding(
+                padding: EdgeInsets.only(left: 20.w, right: 20.w),
+                child: NeumorphicContainer(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                   scaffoldSpacing,
-                      GlassAppBar(
-                        MediaQuery.of(context).size.width,
-                        100.0.h,
-                        'Tee_of_GUI',
-                        Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(right: 20.r),
-                              child: GestureDetector(
+                      Padding(
+                        padding: EdgeInsets.only(left: 10.w),
+                        child: Text(
+                          'Tee_of_GUI',
+                          style: GoogleFonts.leagueSpartan(
+                            color: textColor,
+                            fontSize: 25.sp,
+                          ),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: GestureDetector(
                                 onTap: () {
                                   Navigator.push(
                                       context,
@@ -72,177 +82,53 @@ class _TeeWhyState extends State<TeeWhy> {
                                           type: PageTransitionType.rightToLeft,
                                           isIos: true));
                                 },
-                                child: AppbarButton(
+                                child: const AppbarButton(
                                   icon: Icon(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     Icons.arrow_forward_ios,
-                                    size: 30.sp,
+                                    size: 30,
                                   ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(right: 20.r),
-                              child: GestureDetector(
-                                  onTap: () {
-                                    showModalBottomSheet(
-                                        backgroundColor: Colors.transparent,
-                                        context: context,
-                                        builder: (BuildContext context) =>
-                                            const SettingsGlass());
-                                  },
-                                  child: AppbarButton(
-                                    icon: Icon(
-                                      color: Colors.white,
-                                      Icons.settings,
-                                      size: 30.sp,
-                                    ),
-                                  )),
-                            ),
-                          ],
-                        ),
+                                )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: GestureDetector(
+                                onTap: () {
+                                  showModalBottomSheet(
+                                      backgroundColor: Colors.transparent,
+                                      context: context,
+                                      builder: (BuildContext context) =>
+                                          const SettingsPage());
+                                },
+                                child: const AppbarButton(
+                                  icon: Icon(
+                                    color: Colors.black,
+                                    Icons.settings,
+                                    size: 30,
+                                  ),
+                                )),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-
-                  ProfileContainerGlass(
-                      'assets/images/bg',
-                      'Hi there,\nI am Abubakar Issa',
-                      'Flutter Developer',
-                      MediaQuery.of(context).size.width,
-                      500.0.h),
-                ],
-              ),
-              width: double.infinity,
-              height: double.infinity,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(Assets.imagesGb),
-                  fit: BoxFit.cover,
+                  width: MediaQuery.of(context).size.width,
+                  height: 100.0.h,
+                  color: Colors.white,
                 ),
               ),
-            ),
+            ],
+          ),
+          NeumorphicProfileContainer(
+            image: Assets.imagesGb,
+            name: 'Abubakar Issa',
+            desc: 'Flutter Developer',
+            width: MediaQuery.of(context).size.width,
+            height: 500.0.h,
+            color: Colors.white,
           )
-        : Scaffold(
-            backgroundColor: Colors.grey[300],
-            body: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                 scaffoldSpacing,
-                    Padding(
-                      padding: EdgeInsets.only(left: 20.w, right: 20.w),
-                      child: NeumorphicContainer(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 10.w),
-                                child: Text(
-                                  'Tee_of_GUI',
-                                  // style: TextStyle(
-                                  //     color: Colors.black, fontSize: 20.sp),
-                                  style: GoogleFonts.leagueSpartan(
-                                    color: Colors.black,
-                                    fontSize: 25.sp,
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 20),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            PageTransition(
-                                                child: const Skills(),
-                                                type: PageTransitionType
-                                                    .rightToLeft,
-                                                isIos: true));
-                                      },
-                                      child: Container(
-                                        width: 50.w,
-                                        height: 40.h,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: const Icon(
-                                          color: Colors.black,
-                                          Icons.arrow_forward_ios,
-                                          size: 30,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 20),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        showModalBottomSheet(
-                                            backgroundColor: Colors.transparent,
-                                            context: context,
-                                            builder: (BuildContext context) =>
-                                                const SettingsNeumorphic());
-                                      },
-                                      child: Container(
-                                        width: 50.w,
-                                        height: 40.h,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: const Icon(
-                                          color: Colors.black,
-                                          Icons.settings,
-                                          size: 30,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          width: MediaQuery.of(context).size.width,
-                          height: 100.0.h,
-                          color: Colors.grey[300]),
-                    ),
-                  ],
-                ),
-                NeumorphicProfileContainer(
-                    image: Assets.imagesGb,
-                    name: 'Abubakar Issa',
-                    desc: 'Flutter Developer',
-                    width: MediaQuery.of(context).size.width,
-                    height: 500.0.h,
-                    color: Colors.grey[300])
-              ],
-            ),
-          );
-  }
-}
-
-class AppbarButton extends StatelessWidget {
-  final Icon icon;
-
-  const AppbarButton({super.key, required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 50.w,
-      height: 40.h,
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(10.r),
+        ],
       ),
-      child: icon,
     );
   }
 }

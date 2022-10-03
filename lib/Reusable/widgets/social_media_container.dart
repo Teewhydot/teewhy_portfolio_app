@@ -52,7 +52,7 @@ class SmItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final providerListen = Provider.of<DesignModeProvider>(context);
     Color getIconColor() {
-      return providerListen.isGlassMode ? Colors.white : Colors.black;
+      return providerListen.isDarkMode ? Colors.white : Colors.black;
     }
 
     return GestureDetector(
@@ -63,7 +63,7 @@ class SmItem extends StatelessWidget {
           height: 50.h,
           width: 50.w,
           decoration: BoxDecoration(
-            color: providerListen.isGlassMode ? Colors.black : Colors.white,
+            color: providerListen.isDarkMode ? Colors.black : Colors.white,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
