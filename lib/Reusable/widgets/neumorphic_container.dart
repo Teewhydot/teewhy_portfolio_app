@@ -40,14 +40,14 @@ class NeumorphicContainer extends StatelessWidget {
                 providerListen.isDarkMode ? kBoxShadow1DarkMode : kBoxShadow1,
             blurRadius: 13.r,
             spreadRadius: 1,
-            offset: const Offset(-5, -5), // changes position of shadow
+            offset: const Offset(-5, -5),
           ),
           BoxShadow(
             color:
                 providerListen.isDarkMode ? kBoxShadow2darkMode : kBoxShadow2,
             blurRadius: 18,
             spreadRadius: 1,
-            offset: const Offset(4, 4), // changes position of shadow
+            offset: const Offset(4, 4),
           ),
         ],
       ),

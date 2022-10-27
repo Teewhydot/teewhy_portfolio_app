@@ -19,11 +19,13 @@ class SocialMediaContainer extends StatelessWidget {
         SmItem(
           FontAwesomeIcons.facebook,
           () {
-            launchURL('https://facebook.com', context);
+            launchURL(
+                'https://web.facebook.com/heesah?sk=wall&notif_id=1664494916583737&notif_t=wall&ref=notif',
+                context);
           },
         ),
         SmItem(FontAwesomeIcons.twitter, () {
-          launchURL('https://twitter.com', context);
+          launchURL('https://twitter.com/tee_of_gui', context);
         }),
         SmItem(
           FontAwesomeIcons.linkedin,
@@ -34,7 +36,7 @@ class SocialMediaContainer extends StatelessWidget {
         SmItem(
           FontAwesomeIcons.github,
           () {
-            launchURL('https://github.com', context);
+            launchURL('https://github.com/Teewhydot', context);
           },
         ),
       ],

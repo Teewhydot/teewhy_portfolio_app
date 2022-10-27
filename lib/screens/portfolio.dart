@@ -20,6 +20,8 @@ class _PortfolioState extends State<Portfolio> {
   @override
   Widget build(BuildContext context) {
     final providerListen = Provider.of<DesignModeProvider>(context);
+    final textColor = providerListen.isDarkMode ? Colors.white : Colors.black;
+    final iconColor = providerListen.isDarkMode ? Colors.white : Colors.black;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor:
@@ -38,10 +40,7 @@ class _PortfolioState extends State<Portfolio> {
                       child: Text(
                         'My portfolio',
                         style: TextStyle(
-                            color: providerListen.isDarkMode
-                                ? Colors.white
-                                : Colors.black,
-                            fontSize: 20.sp),
+                            color: textColor, fontSize: 20.sp),
                       ),
                     ),
                     Row(
@@ -54,7 +53,7 @@ class _PortfolioState extends State<Portfolio> {
                               },
                               child: AppbarButton(
                                 icon: Icon(
-                                  color: Colors.black,
+                                  color: iconColor,
                                   Icons.arrow_back_ios,
                                   size: 30.sp,
                                 ),

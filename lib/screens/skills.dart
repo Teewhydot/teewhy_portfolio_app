@@ -25,6 +25,7 @@ class _SkillsState extends State<Skills> {
     final width = MediaQuery.of(context).size.width;
     final providerListen = Provider.of<DesignModeProvider>(context);
     final textColor = providerListen.isDarkMode ? Colors.white : Colors.black;
+    final iconColor = providerListen.isDarkMode ? Colors.white : Colors.black;
     return Scaffold(
       backgroundColor:
           providerListen.isDarkMode ? kScaffoldColorDarkMode : kScaffoldColor,
@@ -42,10 +43,7 @@ class _SkillsState extends State<Skills> {
                       child: Text(
                         'Skills',
                         style: TextStyle(
-                            color: providerListen.isDarkMode
-                                ? Colors.white
-                                : Colors.black,
-                            fontSize: 20.sp),
+                            color: textColor, fontSize: 20.sp),
                       ),
                     ),
                     Row(
@@ -58,7 +56,7 @@ class _SkillsState extends State<Skills> {
                               },
                               child: AppbarButton(
                                 icon: Icon(
-                                  color: Colors.black,
+                                  color: iconColor,
                                   Icons.arrow_back_ios,
                                   size: 30.sp,
                                 ),
@@ -77,7 +75,7 @@ class _SkillsState extends State<Skills> {
                               },
                               child: AppbarButton(
                                 icon: Icon(
-                                  color: Colors.black,
+                                  color: iconColor,
                                   Icons.arrow_forward_ios,
                                   size: 30.sp,
                                 ),

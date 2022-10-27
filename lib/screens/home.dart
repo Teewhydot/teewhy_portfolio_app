@@ -44,6 +44,7 @@ class _TeeWhyState extends State<TeeWhy> {
   Widget build(BuildContext context) {
     final providerListen = Provider.of<DesignModeProvider>(context);
     final textColor = providerListen.isDarkMode ? Colors.white : Colors.black;
+    final iconColor = providerListen.isDarkMode ? Colors.white : Colors.black;
     return Scaffold(
       backgroundColor:
           providerListen.isDarkMode ? kScaffoldColorDarkMode : kScaffoldColor,
@@ -82,9 +83,9 @@ class _TeeWhyState extends State<TeeWhy> {
                                           type: PageTransitionType.rightToLeft,
                                           isIos: true));
                                 },
-                                child: const AppbarButton(
+                                child: AppbarButton(
                                   icon: Icon(
-                                    color: Colors.black,
+                                    color: iconColor,
                                     Icons.arrow_forward_ios,
                                     size: 30,
                                   ),
@@ -100,9 +101,9 @@ class _TeeWhyState extends State<TeeWhy> {
                                       builder: (BuildContext context) =>
                                           const SettingsPage());
                                 },
-                                child: const AppbarButton(
+                                child: AppbarButton(
                                   icon: Icon(
-                                    color: Colors.black,
+                                    color: iconColor,
                                     Icons.settings,
                                     size: 30,
                                   ),

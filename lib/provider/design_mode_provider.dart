@@ -6,8 +6,8 @@ class DesignModeProvider extends ChangeNotifier {
 
   bool get isDarkMode => _darkMode == true;
 
-  DesignModeProvider(isGlass) {
-    _darkMode = isGlass ? true : false;
+  DesignModeProvider(isDarkMode) {
+    _darkMode = isDarkMode ? true : false;
   }
 
   void toggleDesignMode(bool isGlass) async {
