@@ -85,17 +85,23 @@ class _PortfolioState extends State<Portfolio> {
                           projectDescription: "Rock paper Scissors Game",
                           githubRepositoryLink:
                               'https://github.com/Teewhydot/rock_paper_scissors',
-                          netlifySiteLink:
-                              'https://rockpaperscissors-lizardspock.netlify.app/'),
-                      addVerticalSpacing(10),
-                      const PortfolioCardNeurmorphic(
-                          projectName: 'Clone Chat',
-                          projectDescription: "Chat with your clones",
-                          githubRepositoryLink:
-                              'https://github.com/Teewhydot/clone_chat',
-                          netlifySiteLink:
-                              'https://clone-chatapp.netlify.app/'),
-                    ],
+                    netlifySiteLink:
+                        'https://rockpaperscissors-lizardspock.netlify.app/'),
+                addVerticalSpacing(10),
+                const PortfolioCardNeurmorphic(
+                    projectName: 'Clone Chat',
+                    projectDescription: "Chat with your clones",
+                    githubRepositoryLink:
+                        'https://github.com/Teewhydot/clone_chat',
+                    netlifySiteLink: 'https://clone-chatapp.netlify.app/'),
+                addVerticalSpacing(10),
+                const PortfolioCardNeurmorphic(
+                    projectName: 'Foodly',
+                    projectDescription:
+                        "Order food from your favourite restaurant",
+                    githubRepositoryLink: 'https://github.com/Teewhydot/foodly',
+                    netlifySiteLink: 'https://clone-chatapp.netlify.app/'),
+              ],
                   ),
                 ),
               ],
