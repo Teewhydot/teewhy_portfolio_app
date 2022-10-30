@@ -30,7 +30,8 @@ class SocialMediaContainer extends StatelessWidget {
         SmItem(
           FontAwesomeIcons.linkedin,
           () {
-            launchURL('https://linkedin.com', context);
+            launchURL('https://www.linkedin.com/in/abubakar-issa-a0a200189/',
+                context);
           },
         ),
         SmItem(
